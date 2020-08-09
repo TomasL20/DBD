@@ -24,7 +24,7 @@ class CreateFailedJobsTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations. hola tomas
      *
      * @return void
      */
