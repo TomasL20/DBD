@@ -14,7 +14,13 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
+            //asignamos foraneas
+            $table->unsignedBigInteger('idCat');
+            //Referenciamos foránea
+            $table->foreign('idCat')->references('id')->on('categories');
+            
+            $table->string('prodName');
             $table->timestamps();
         });
     }
