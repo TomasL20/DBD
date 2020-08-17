@@ -2,13 +2,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Category;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Category::class, function (Faker $faker) {
     return [
         //
-        'catName' => $faker->randomElement($array = ('Inmobilaria','Muebles','Herramientas','Articulos','Espacios','Vehiculos')),
+        'catName' => $faker->randomElement($array = array ('Inmobilaria','Muebles','Herramientas','Articulos','Espacios','Vehiculos')),
         
     ];
 });

@@ -2,15 +2,15 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Rating;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Rating::class, function (Faker $faker) {
     $idAd = App\Ad::pluck('id')->toArray();
     return [
         'rate' => $faker->numberBetween(0,10),
-        'comments' => $faker->text(),
-        'createdAt' => $faker->date(),
+        'comment' => $faker->text(),
+        'commentDate' => $faker->date(),
         'idAd' => $faker->randomElement($idAd),
     ];
 });

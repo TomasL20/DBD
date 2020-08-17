@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Ad;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Ad::class, function (Faker $faker) {
     $idProd = App\Product::pluck('id')->toArray();
     $idUser = App\User::pluck('id')->toArray();
     return [

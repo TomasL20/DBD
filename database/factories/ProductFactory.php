@@ -2,13 +2,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Product;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Product::class, function (Faker $faker) {
     $idCat = App\Category::pluck('id')->toArray();
     return [
-        'name' => $faker->randomElement($array = array ('Departamento','Escritorio','Tijera','Taladro Bauker', 'Patio', 'Moto')),
+        'prodName' => $faker->randomElement($array = array ('Departamento','Escritorio','Tijera','Taladro Bauker', 'Patio', 'Moto')),
         'idCat'=> $faker->randomElement($idCat),
     ];
 });
