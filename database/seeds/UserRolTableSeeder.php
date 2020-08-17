@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\UserRol;
 
 class UserRolTableSeeder extends Seeder
 {
@@ -12,5 +13,6 @@ class UserRolTableSeeder extends Seeder
     public function run()
     {
         //
+        factory(App\UserRol::class, 30)->create();
     }
 }
