@@ -14,7 +14,14 @@ class CreateRatingsTable extends Migration
     public function up()
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
+            $table->unsignedBigInteger('idAd');
+
+            $table->foreign('idAd')->references('id')->on('ads');
+
+            $table->integer('rate');
+            $table->string('comment');
+            $table->timestamp('commentDate');
             $table->timestamps();
         });
     }
