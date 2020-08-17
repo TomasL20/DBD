@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rol extends Model
 {
-    //
+    protected $fillable = [
+        'description',
+    ];
+    
+    public function rolPermission(){
+        return $this->hasMany(RolPermission::class);
+    }
 }
