@@ -17,11 +17,12 @@ class CreateRatingsTable extends Migration
             $table->id('id');
             $table->unsignedBigInteger('idAd');
 
-            $table->foreign('idAd')->references('id')->on('ads');
-
             $table->integer('rate');
             $table->string('comment');
             $table->timestamp('commentDate');
+
+            $table->foreign('idAd')->references('id')->on('ads');
+            
             $table->timestamps();
         });
     }

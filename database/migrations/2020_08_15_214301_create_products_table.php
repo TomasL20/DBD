@@ -17,10 +17,11 @@ class CreateProductsTable extends Migration
             $table->id('id');
             //asignamos foraneas
             $table->unsignedBigInteger('idCat');
-            //Referenciamos foránea
-            $table->foreign('idCat')->references('id')->on('categories');
+            
             
             $table->string('prodName');
+            //Referenciamos foránea
+            $table->foreign('idCat')->references('id')->on('categories');
             $table->timestamps();
         });
     }

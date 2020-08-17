@@ -18,15 +18,17 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('idUser');
             $table->unsignedBigInteger('idAd');
             $table->unsignedBigInteger('idPay');
-            
+
+            $table->float('totalPrice');
+            $table->integer('quantity');
+            $table->timestamp('reservedAt');
+            $table->timestamp('freeAt');
+
             $table->foreign('idUser')->references('id')->on('users');
             $table->foreign('idAd')->references('id')->on('ads');
             $table->foreign('idPay')->references('id')->on('payments');
 
-            $table->float('totalPrice');
-            $table->integer('quantity');
-            $table->timestamps('reservedAt');
-            $table->timestamps('freeAt');
+
             $table->timestamps();
         });
     }

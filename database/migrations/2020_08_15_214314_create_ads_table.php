@@ -19,9 +19,6 @@ class CreateAdsTable extends Migration
             $table->unsignedBigInteger('idProd');
             $table->unsignedBigInteger('idUser');
 
-            $table->foreign('idProd')->references('id')->on('products');
-            $table->foreign('idUser')->references('id')->on('users');
-
             $table->string('description');
             $table->string('descName');
             $table->float('price');
@@ -29,7 +26,9 @@ class CreateAdsTable extends Migration
             $table->integer('stock');
             $table->boolean('status');
             $table->string('location');
-            
+
+            $table->foreign('idProd')->references('id')->on('products');
+            $table->foreign('idUser')->references('id')->on('users');
             $table->timestamps();
         });
     }
