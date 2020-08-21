@@ -26,7 +26,9 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    /* edito estas dos variables para poder visualizar mejor los errores, siguiendo el tip del manual de instalación */
+
+    'env' => env('APP_ENV', 'development'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool) env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
