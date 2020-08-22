@@ -10,7 +10,6 @@ class Ad extends Model
         'description', 'descName', 'price',
         'arrInfo', 'stock', 'status','location',
     ];
-    protected $primaryKey = 'idAnuncio';
 
     public function order(){
         return $this->hasMany(Order::class);

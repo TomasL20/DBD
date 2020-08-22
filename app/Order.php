@@ -15,7 +15,6 @@ class Order extends Model
         'freeAt',
         'reservedAt',
     ];
-    protected $primaryKey = 'idPedido';
     public function user(){
         return $this->belongsTo(User::class);
     }

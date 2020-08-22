@@ -9,7 +9,7 @@ class Category extends Model
     protected $fillable = [
         'catName',
     ];
-    protected $primaryKey = 'idCategory';
+
     public function product(){
         return $this->hasMany(Product::class);
     }

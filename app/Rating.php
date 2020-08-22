@@ -9,7 +9,7 @@ class Rating extends Model
     protected $fillable = [
         'rate', 'comment', 'commentDate',
     ];
-    protected $primaryKey = 'idValoracion';
+
     public function ad(){
         return $this->belongsTo(Ad::class);
     }
