@@ -40,7 +40,11 @@ class OrderController extends Controller
         $newOrder->totalPrice = $request->totalPrice;
         $newOrder->quantity = $request->quantity;
         $newOrder->save();
-        return 'Se ha creado el nuevo pedido';
+        return response()->json([
+            {
+            "message"=> "Order Created"
+            }
+        ],201);
     }
 
     /**

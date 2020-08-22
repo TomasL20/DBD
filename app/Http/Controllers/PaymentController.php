@@ -39,7 +39,11 @@ class PaymentController extends Controller
         $newPayment = new Payment();
         $newPayment->paymentType = $request->paymentType;
         $newPayment->save();
-        return 'Se ha creado el nuevo pago';
+        return response()->json([
+            {
+            "message"=> "Created"
+            }
+        ],201);
     }
 
     /**

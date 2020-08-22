@@ -39,7 +39,11 @@ class CategoryController extends Controller
         $newCategory = new Category();
         $newCategory->catName = $request->catName;
         $newCategory->save();
-        return 'Se ha creado la nueva categoria';
+        return response()->json([
+            {
+            "message"=> "Category Created"
+            }
+        ],201);
     }
 
     /**

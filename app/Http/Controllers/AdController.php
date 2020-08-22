@@ -44,7 +44,11 @@ class AdController extends Controller
         $newAd->status = $request->status;
         $newAd->location = $request->location;
         $newAd->save();
-        return 'Se ha creado el nuevo anuncio';
+        return response()->json([
+            {
+            "message"=> "Ad Created"
+            }
+        ],201);
     }
 
     /**
