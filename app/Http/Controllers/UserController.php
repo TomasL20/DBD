@@ -36,7 +36,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newUser= new User();
+        $newUser->userName = $request->userName;
+        $newUser->realName = $request->realName;
+        $newUser->email = $request->email;
+        $newUser->password = $request->password;
+        return response()->json([
+            
+            "message"=> "Created"
+            
+        ],201);
     }
 
     /**

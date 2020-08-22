@@ -36,7 +36,13 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newPermission = new Permission();
+        $newPermission->description = $request->description;
+        $newPermission->save();
+        return response()->json([
+            "message"=> "Created"
+        ],201);
+
     }
 
     /**

@@ -36,7 +36,16 @@ class RatingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newRating = new Rating();
+        $newRating->rate = $request->rate;
+        $newRating->comment = $request->comment;
+        $newRating->commentDate = $request->commentDate;
+        $newRating->save();
+        return response()->json([
+            
+            "message"=> "Created"
+            
+        ],201);
     }
 
     /**

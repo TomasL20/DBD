@@ -36,7 +36,13 @@ class RolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newRol = new Rol();
+        $newRol->description= $request->description;
+        return response()->json([
+            
+            "message"=> "Created"
+            
+        ],201);
     }
 
     /**

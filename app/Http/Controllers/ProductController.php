@@ -36,7 +36,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newProduct = new Product();
+        $newProduct->prodName = $request->prodName;
+        $newProduct->save();
+        return response()->json([
+            
+            "message"=> "Created"
+            
+        ],201);
     }
 
     /**
