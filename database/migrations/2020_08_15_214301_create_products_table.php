@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id('id');
             //asignamos foraneas
-            $table->unsignedBigInteger('idCat');
+            $table->unsignedBigInteger('idCat')->nullable();
             
             
             $table->string('prodName'); //Nombre del produto 
