@@ -38,14 +38,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     //se especifica el tipo de relaciones que posee la clase
+    //la clase "user" tiene una relacion de uno es a muchos con un objeto de la clase "UserRol"
     public function userRol(){
         return $this->hasMany(UserRol::class);
     }
-
+    //la clase "user" tiene una relacion de uno es a muchos con un objeto de la clase "Order"
     public function order(){
         return $this->hasMany(Order::class);
     }
-
+    //la clase "user" tiene una relacion de uno es a muchos con un objeto de la clase "ad"
     public function ad(){
         return $this->hasMany(Ad::class);
     }

@@ -12,18 +12,19 @@ class Ad extends Model
         'arrInfo', 'stock', 'status','location',
     ];
     //se especifica el tipo de relaciones que posee la clase
+    //la clase "Ad" tiene una relacion de uno es a muchos con un objeto de la clase "Order"
     public function order(){
         return $this->hasMany(Order::class);
     }
-
+    //la clase "Ad" tiene una relacion de uno es a muchos con un objeto de la clase "Rating"
     public function rating(){
         return $this->hasMany(Rating::class);
     }
-
+    //la clase "Ad" pertenece  a un objeto de la clase "User"
     public function user(){
         return $this->belongsTo(User::class);
     }
-
+    //la clase "Ad" pertenece  a un objeto de la clase "Product"
     public function product(){
         return $this->belongsTo(Product::class);
     }

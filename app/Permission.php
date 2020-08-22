@@ -11,6 +11,7 @@ class Permission extends Model
         'description',
     ];
     //se especifica el tipo de relacion que posee la clase
+    //la clase "Permission" tiene una relacion de uno es a muchos con un objeto de la clase "rolPermission"
     public function rolPermission(){
         return $this->hasMany(RolPermission::class);
     }

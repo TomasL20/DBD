@@ -11,6 +11,7 @@ class Payment extends Model
         'paymentType',
     ];
     //se especifica el tipo de relacion que posee la clase
+    //la clase "payment" tiene una relacion de uno es a muchos con un objeto de la clase "Order"
     public function order(){
         return $this->hasMany(Order::class);
     }
