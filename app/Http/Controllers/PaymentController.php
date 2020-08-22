@@ -40,9 +40,9 @@ class PaymentController extends Controller
         $newPayment->paymentType = $request->paymentType;
         $newPayment->save();
         return response()->json([
-            {
+            
             "message"=> "Created"
-            }
+            
         ],201);
     }
 

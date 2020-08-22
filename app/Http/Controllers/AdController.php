@@ -45,9 +45,9 @@ class AdController extends Controller
         $newAd->location = $request->location;
         $newAd->save();
         return response()->json([
-            {
+            
             "message"=> "Ad Created"
-            }
+            
         ],201);
     }
 

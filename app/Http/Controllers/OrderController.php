@@ -41,9 +41,9 @@ class OrderController extends Controller
         $newOrder->quantity = $request->quantity;
         $newOrder->save();
         return response()->json([
-            {
+            
             "message"=> "Order Created"
-            }
+            
         ],201);
     }
 
