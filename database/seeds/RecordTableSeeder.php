@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Record;
 
 class RecordTableSeeder extends Seeder
 {
@@ -12,5 +13,6 @@ class RecordTableSeeder extends Seeder
     public function run()
     {
         //
+        factory(App\Record::class, 30)->create();
     }
 }
