@@ -36,7 +36,11 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newOrder = new Order();
+        $newOrder->totalPrice = $request->totalPrice;
+        $newOrder->quantity = $request->quantity;
+        $newOrder->save();
+        return 'Se ha creado el nuevo pedido';
     }
 
     /**
