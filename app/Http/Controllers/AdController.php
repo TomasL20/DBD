@@ -83,8 +83,18 @@ class AdController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ad = Ad::findOrFail($id);
+        if ($request->get('desc') != NULL){
+            $ad->description = $request->get('desc');
+        }
+        if ($request->get('descN') != NULL){
+            $ad->descName = $request->get('descN');;
+        }
+        $ad->save();
+    
+        return response()->json($ad);
     }
+ 
 
     /**
      * Remove the specified resource from storage.

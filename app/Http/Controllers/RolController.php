@@ -77,7 +77,12 @@ class RolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rol = rol::findOrFail($id);
+        if ($request->get('desc') != NULL){
+            $rol->description = $request->get('desc');
+        }
+        $rol->save();
+        return response()->json($rol);
     }
 
     /**

@@ -78,9 +78,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        if ($request->get('name') != NULL){
+            $product->prodName = $request->get('name');
+        }
+        $product->save();
+        return response()->json($product);
     }
-
     /**
      * Remove the specified resource from storage.
      *

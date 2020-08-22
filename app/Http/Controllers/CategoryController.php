@@ -78,7 +78,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        if ($request->get('name') != NULL){
+            $category->catName = $request->get('name');
+        }
+        $category->save();
+    
+        return response()->json($category);
     }
 
     /**
