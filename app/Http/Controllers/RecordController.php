@@ -90,6 +90,14 @@ class RecordController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $record = Record::find($id);
+        if($record != NULL){
+            $record->delete();
+            return response()->json([
+                "message"=> "Se elimina el registro.",
+                "idRecord" => $record->id
+            ]);   
+        }
+        return "No existe registro con esa ID";
     }
 }
