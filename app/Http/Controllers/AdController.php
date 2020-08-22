@@ -47,7 +47,8 @@ class AdController extends Controller
      */
     public function show($id)
     {
-        //
+        $ad = Ad::find($id);
+        return response()->json($ad);
     }
 
     /**
