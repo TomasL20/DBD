@@ -47,7 +47,8 @@ class RecordDatabaseController extends Controller
      */
     public function show($id)
     {
-        //
+        $recorddatabase = RecordDatabase::find($id);
+        return response()->json($recorddatabase);
     }
 
     /**

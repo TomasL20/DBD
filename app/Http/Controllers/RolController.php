@@ -47,7 +47,8 @@ class RolController extends Controller
      */
     public function show($id)
     {
-        //
+        $rol = Rol::find($id);
+        return response()->json($rol);
     }
 
     /**

@@ -47,7 +47,8 @@ class RatingController extends Controller
      */
     public function show($id)
     {
-        //
+        $rating = Rating::find($id);
+        return response()->json($rating);
     }
 
     /**

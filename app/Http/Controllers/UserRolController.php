@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\UserRol;
 
 use Illuminate\Http\Request;
+use App\UserRol;
 
 class UserRolController extends Controller
 {
@@ -47,7 +47,8 @@ class UserRolController extends Controller
      */
     public function show($id)
     {
-        //
+        $userrol = UserRol::find($id);
+        return response()->json($userrol);
     }
 
     /**

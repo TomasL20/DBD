@@ -47,7 +47,8 @@ class RolPermissionController extends Controller
      */
     public function show($id)
     {
-        //
+        $rolpermission = RolPermission::find($id);
+        return response()->json($rolpermission);
     }
 
     /**
