@@ -12,6 +12,8 @@ class RecordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
         $record = Record::all();
@@ -34,6 +36,7 @@ class RecordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $newRecord = new Record();
@@ -53,6 +56,8 @@ class RecordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado
     public function show($id)
     {
         $record = Record::find($id);

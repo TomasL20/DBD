@@ -54,6 +54,8 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado
     public function show($id)
     {
         $order = Order::find($id);
@@ -78,6 +80,8 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //Funcion que cambia una tupla, la modifica con respecto al id y request entregado
     public function update(Request $request, $id)
     {
         $order = Order::findOrFail($id);
@@ -97,6 +101,8 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //Elimina la tupla dependiendo del identificador entregado
     public function destroy($id)
     {
         $order = Order::find($id);

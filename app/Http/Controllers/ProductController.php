@@ -34,6 +34,8 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //Elimina la tupla dependiendo del identificador entregado 
     public function store(Request $request)
     {
         $newProduct = new Product();
@@ -53,6 +55,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado
     public function show($id)
     {
         $product = Product::find($id);
@@ -77,6 +81,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Funcion que cambia una tupla, la modifica con respecto al id y request entregado
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
@@ -92,6 +97,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
+    //Elimina la tupla dependiendo del identificador entregado 
     public function destroy($id)
     {
         $product = Product::find($id);
