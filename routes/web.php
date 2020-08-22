@@ -18,49 +18,49 @@ Route::get('/', function () {
 });
 
 //Rutas de Ad
-Route::get('/permission/all','AdController@index');
-Route::get('/permission/{id}','AdController@show');
+Route::get('/ad/all','AdController@index');
+Route::get('/ad/{id}','AdController@show');
 
 //Rutas de Category
-Route::get('/permission/all','CategoryController@index');
-Route::get('/permission/{id}','CategoryController@show');
+Route::get('/category/all','CategoryController@index');
+Route::get('/category/{id}','CategoryController@show');
 
 //Rutas de Order
-Route::get('/permission/all','OrderController@index');
-Route::get('/permission/{id}','OrderController@show');
+Route::get('/order/all','OrderController@index');
+Route::get('/order/{id}','OrderController@show');
 
 //Rutas de Payment
-Route::get('/permission/all','PaymentController@index');
-Route::get('/permission/{id}','PaymentController@show');
+Route::get('/payment/all','PaymentController@index');
+Route::get('/payment/{id}','PaymentController@show');
 
 //Rutas de Permission
 Route::get('/permission/all','PermissionController@index');
 Route::get('/permission/{id}','PermissionController@show');
 
 //Rutas de Product
-Route::get('/permission/all','ProductController@index');
-Route::get('/permission/{id}','ProductController@show');
+Route::get('/product/all','ProductController@index');
+Route::get('/product/{id}','ProductController@show');
 
 //Rutas de Rating
-Route::get('/permission/all','RatingController@index');
-Route::get('/permission/{id}','RatingController@show');
+Route::get('/rating/all','RatingController@index');
+Route::get('/rating/{id}','RatingController@show');
 
 //Rutas de Record
-Route::get('/permission/all','RecordController@index');
-Route::get('/permission/{id}','RecordController@show');
+Route::get('/record/all','RecordController@index');
+Route::get('/record/{id}','RecordController@show');
 
 //Rutas de Rol
-Route::get('/permission/all','RolController@index');
-Route::get('/permission/{id}','RolController@show');
+Route::get('/rol/all','RolController@index');
+Route::get('/rol/{id}','RolController@show');
 
 //Rutas de RolPermission
-Route::get('/permission/all','RolPermissionController@index');
-Route::get('/permission/{id}','RolPermissionController@show');
+Route::get('/rolpermission/all','RolPermissionController@index');
+Route::get('/rolpermission/{id}','RolPermissionController@show');
 
 //Rutas de User
-Route::get('/permission/all','UserController@index');
-Route::get('/permission/{id}','UserController@show');
+Route::get('/user/all','UserController@index');
+Route::get('/user/{id}','UserController@show');
 
 //Rutas de UserRol
-Route::get('/permission/all','UserRolController@index');
-Route::get('/permission/{id}','UserRolController@show');
+Route::get('/userrol/all','UserRolController@index');
+Route::get('/userrol/{id}','UserRolController@show');
