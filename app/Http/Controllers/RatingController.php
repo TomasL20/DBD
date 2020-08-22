@@ -91,6 +91,8 @@ class RatingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rating = Rating::find($id);
+        $rating->delete();
+        return "La valoración fue eliminada";
     }
 }

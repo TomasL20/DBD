@@ -94,6 +94,8 @@ class AdController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ad = Ad::find($id);
+        $ad->delete();
+        return "el anuncio fue eliminado";
     }
 }
