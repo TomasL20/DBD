@@ -93,8 +93,14 @@ class RolController extends Controller
      */
     public function destroy($id)
     {
-        $rol = Rol::find($id);
-        $rol->delete();
-        return "El rol fue eliminado";
+        $rol = Ad::find($id);
+        if($rol != NULL){
+            $rol->delete();
+            return response()->json([
+                "message"=> "se elimina el rol",
+                "idRol" => $rol->id
+            ]);   
+        }
+        return "No existe rol con esa ID";
     }
 }

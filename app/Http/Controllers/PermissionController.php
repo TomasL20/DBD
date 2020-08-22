@@ -94,8 +94,14 @@ class PermissionController extends Controller
     public function destroy($id)
     {
         $permission = Permission::find($id);
-        $permission->delete();
-        return "El permiso fue eliminado";
+        if($permission != NULL){
+            $permission->delete();
+            return response()->json([
+                "message"=> "se elimina el permiso",
+                "idAd" => $permission->id
+            ]);   
+        }
+        return "No existe permiso con esa ID";
 
     }
 }

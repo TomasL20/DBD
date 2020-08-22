@@ -108,7 +108,10 @@ class AdController extends Controller
         $ad = Ad::find($id);
         if($ad != NULL){
             $ad->delete();
-            return "el anuncio fue eliminado";    
+            return response()->json([
+                "message"=> "se elimina el anuncio",
+                "idAd" => $ad->id
+            ]);   
         }
         return "No existe anuncio con esa ID";
     }

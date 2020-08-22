@@ -99,7 +99,13 @@ class OrderController extends Controller
     public function destroy($id)
     {
         $order = Order::find($id);
-        $order->delete();
-        return "La orden fue eliminada";
+        if($order != NULL){
+            $order->delete();
+            return response()->json([
+                "message"=> "se elimina el pedido",
+                "idOrder" => $order->id
+            ]);   
+        }
+        return "No existe pedido con esa ID";
     }
 }

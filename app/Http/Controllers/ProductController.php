@@ -94,7 +94,13 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        $product->delete();
-        return  "El producto fue eliminado";
+        if($product != NULL){
+            $product->delete();
+            return response()->json([
+                "message"=> "se elimina el producto",
+                "idProduct" => $product->id
+            ]);   
+        }
+        return "No existe producto con esa ID";
     }
 }

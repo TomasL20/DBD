@@ -96,7 +96,13 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        $category->delete();
-        return "La categoría fue eliminada";
+        if($category != NULL){
+            $category->delete();
+            return response()->json([
+                "message"=> "se elimina la categoría",
+                "idCategory" => $category->id
+            ]);   
+        }
+        return "No existe categoría con esa ID";
     }
 }

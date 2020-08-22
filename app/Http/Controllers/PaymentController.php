@@ -95,7 +95,13 @@ class PaymentController extends Controller
     public function destroy($id)
     {
         $payment = Payment::find($id);
-        $payment->delete();
-        return "El método de pago fue eliminado";
+        if($payment != NULL){
+            $payment->delete();
+            return response()->json([
+                "message"=> "se elimina el pago",
+                "idPayment" => $payment->id
+            ]);   
+        }
+        return "No existe pago con esa ID";
     }
 }
