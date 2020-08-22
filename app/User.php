@@ -33,10 +33,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+     //se colocan los campos los cuales se quieren llenar
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    //se especifica el tipo de relaciones que posee la clase
     public function userRol(){
         return $this->hasMany(UserRol::class);
     }

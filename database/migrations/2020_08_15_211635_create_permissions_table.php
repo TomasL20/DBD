@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+//Corresponde a la migracion de la entidad permisos
 class CreatePermissionsTable extends Migration
 {
     /**
@@ -14,8 +15,8 @@ class CreatePermissionsTable extends Migration
     public function up()
     {
         Schema::create('permissions', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('description');
+            $table->id('id'); //Identificador del permiso
+            $table->string('description'); //Descripcion de las cualidades que posee el permiso
             $table->timestamps();
         });
     }
