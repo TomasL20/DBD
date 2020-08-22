@@ -36,7 +36,15 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newRecord = new Record();
+        $newRecord->action = $request->action;
+        $newRecord->createdAt = $request->createdAt;
+        $newRecord->modifyIn = $request->modifyIn;
+        $newRecord->save();
+        return response()->json([
+            "message"=> "Nuevo registro creado.",
+            "idRecordCreated" => $newRecord->id
+        ],201);
     }
 
     /**
