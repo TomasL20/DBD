@@ -78,8 +78,8 @@ class PermissionController extends Controller
     public function update(Request $request, $id)
     {
         $permission = Permission::findOrFail($id);
-        if ($request->get('desc') != NULL){
-            $permission->description = $request->get('desc');
+        if ($request->get('description') != NULL){
+            $permission->description = $request->get('description');
         }
         $permission->save();
         return response()->json($permission);

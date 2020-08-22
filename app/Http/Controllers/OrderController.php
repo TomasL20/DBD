@@ -80,11 +80,11 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
         $order = Order::findOrFail($id);
-        if ($request->get('price') != NULL){
-            $order->totalPrice = $request->get('price');
+        if ($request->get('totalPrice') != NULL){
+            $order->totalPrice = $request->get('totalPrice');
         }
-        if ($request->get('quan') != NULL){
-            $order->quantity = $request->get('quan');;
+        if ($request->get('quantity') != NULL){
+            $order->quantity = $request->get('quantity');;
         }
         $order->save();
         return response()->json($order);
