@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Rol::class, function (Faker $faker) {
     return [
-        'description' => $faker->text(),
+         //se crea el faker donde se especifica el tipo de dato
+        'description' => $faker->text(),// se hace uso de este tipo de dato, para poder dar una descripcion 
     ];
 });

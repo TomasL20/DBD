@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+//Seeder que hace un llamado a los "seeders"
 class DatabaseSeeder extends Seeder
 {
     /**

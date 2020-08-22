@@ -13,6 +13,6 @@ class RolTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(App\Rol::class, 30)->create();
+        factory(App\Rol::class, 30)->create(); // secrean 30 datos , los cuales son llamados desde la factory Rol
     }
 }

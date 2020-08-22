@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+//corresponde a la migracion de la tabla intermedia rol y usuarios
 class CreateUserRolsTable extends Migration
 {
     /**
@@ -14,13 +14,14 @@ class CreateUserRolsTable extends Migration
     public function up()
     {
         Schema::create('user_rols', function (Blueprint $table) {
-            $table->id('id');
-            $table->unsignedBigInteger('idRol');
-            $table->unsignedBigInteger('idUser');
+            $table->id('id'); //Identificador correspondiente a la tabla intermedia
+            //Se crean las llaves foraneas
+            $table->unsignedBigInteger('idRol'); // Identificador de la tabla rol
+            $table->unsignedBigInteger('idUser');//Identificador de la tabla usuario
 
-
-            $table->foreign('idRol')->references('id')->on('rols');
-            $table->foreign('idUser')->references('id')->on('users');
+            //Se referencian las llaves foraneas
+            $table->foreign('idRol')->references('id')->on('rols');// Se referenacia la llave foranea de la tabla rol
+            $table->foreign('idUser')->references('id')->on('users');//Se referencia la llave foranea  de la tabla usuarios
             $table->timestamps();
         });
     }

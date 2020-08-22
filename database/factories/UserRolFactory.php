@@ -6,7 +6,7 @@ use App\UserRol;
 use Faker\Generator as Faker;
 
 $factory->define(UserRol::class, function (Faker $faker) {
-    //se especifica el tipo de dato
+    //se especifica el tipo de dato, se colocan las rutas de las llaves
     $idRol = App\Rol::pluck('id')->toArray();
     $idUser = App\User::pluck('id')->toArray();
     return [

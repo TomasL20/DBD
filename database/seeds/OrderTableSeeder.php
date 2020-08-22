@@ -12,6 +12,6 @@ class OrderTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Order::class, 30)->create();
+        factory(App\Order::class, 30)->create();// secrean 30 datos , los cuales son llamados desde la factory "Order"
     }
 }

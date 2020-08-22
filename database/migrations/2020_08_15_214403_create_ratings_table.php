@@ -15,13 +15,15 @@ class CreateRatingsTable extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id('id'); //Identificador de la tabla "ratings"
+            //Se crea la llave foranea
             $table->unsignedBigInteger('idAd'); //Llave foranea correspondiente al identificador del anuncio
 
             $table->integer('rate'); // Corresponde a la evaluacion del anuncio numero 
             $table->string('comment'); // corresponde al comentario de la evaluacion
             $table->timestamp('commentDate');
 
-            $table->foreign('idAd')->references('id')->on('ads');
+            //Se referencia la llave foranea
+            $table->foreign('idAd')->references('id')->on('ads'); //Se referencia la llave foranea que proviene de anuncios "ads"
             
             $table->timestamps();
         });
