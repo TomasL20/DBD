@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\RecordDatabase;
 
-class RecordDatabaseController extends Controller
+class RecordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,8 @@ class RecordDatabaseController extends Controller
      */
     public function index()
     {
-        $recorddatabase = RecordDatabase::all();
-        return response()->json($recorddatabase);
+        $record = Record::all();
+        return response()->json($record);
     }
 
     /**
@@ -47,8 +46,8 @@ class RecordDatabaseController extends Controller
      */
     public function show($id)
     {
-        $recorddatabase = RecordDatabase::find($id);
-        return response()->json($recorddatabase);
+        $record = Record::find($id);
+        return response()->json($record);
     }
 
     /**
