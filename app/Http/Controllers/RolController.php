@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Rol;
 
 class RolController extends Controller
 {
@@ -13,7 +14,8 @@ class RolController extends Controller
      */
     public function index()
     {
-        //
+        $rol = Rol::all();
+        return response()->json($rol);
     }
 
     /**

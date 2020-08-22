@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\UserRol;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class UserRolController extends Controller
      */
     public function index()
     {
-        //
+        $userrol = UserRol::all();
+        return response()->json($userrol);
     }
 
     /**

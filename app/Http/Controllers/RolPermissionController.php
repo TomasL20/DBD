@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\RolPermission;
 
 class RolPermissionController extends Controller
 {
@@ -13,7 +14,8 @@ class RolPermissionController extends Controller
      */
     public function index()
     {
-        //
+        $rolpermission = RolPermission::all();
+        return response()->json($rolpermission);
     }
 
     /**
