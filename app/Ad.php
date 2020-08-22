@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ad extends Model
 {
+     //se colocan los campos los cuales se quieren llenar
     protected $fillable = [
         'description', 'descName', 'price',
         'arrInfo', 'stock', 'status','location',
     ];
-
+    //se especifica el tipo de relaciones que posee la clase
     public function order(){
         return $this->hasMany(Order::class);
     }
