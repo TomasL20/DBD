@@ -36,7 +36,10 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newPayment = new Payment();
+        $newPayment->paymentType = $request->paymentType;
+        $newPayment->save();
+        return 'Se ha creado el nuevo pago';
     }
 
     /**

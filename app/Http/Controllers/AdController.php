@@ -36,7 +36,15 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newAd = new Ad();
+        $newAd->description = $request->description;
+        $newAd->descName = $request->descName;
+        $newAd->arrInfo = $request->arrInfo;
+        $newAd->stock = $request->stock;
+        $newAd->status = $request->status;
+        $newAd->location = $request->location;
+        $newAd->save();
+        return 'Se ha creado';
     }
 
     /**
