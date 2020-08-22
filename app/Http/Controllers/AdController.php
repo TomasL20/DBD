@@ -91,8 +91,19 @@ class AdController extends Controller
         if ($request->get('descName') != NULL){
             $ad->descName = $request->get('descName');;
         }
+        if ($request->get('arrInfo') != NULL){
+            $ad->arrInfo = $request->get('arrInfo');;
+        }
+        if ($request->get('stock') != NULL){
+            $ad->stock = $request->get('stock');
+        }
+        if ($request->get('status') != NULL){
+            $ad->status = $request->get('status');;
+        }
+        if ($request->get('location') != NULL){
+            $ad->location = $request->get('location');;
+        }
         $ad->save();
-    
         return response()->json($ad);
     }
  

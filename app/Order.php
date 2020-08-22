@@ -17,12 +17,16 @@ class Order extends Model
         'reservedAt',
     ];
     //se especifica el tipo de relaciones que posee la clase
+
+    //la clase "Order" pertenece  a un objeto de la clase "User"
     public function user(){
         return $this->belongsTo(User::class);
     }
+    //la clase "Order" pertenece  a un objeto de la clase "payment"
     public function payment(){
         return $this->belongsTo(Payment::class);
     }
+    //la clase "Order" pertenece  a un objeto de la clase "ad"
     public function ad(){
         return $this->belongsTo(Ad::class);
     }

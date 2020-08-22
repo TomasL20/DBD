@@ -11,6 +11,7 @@ class Rating extends Model
         'rate', 'comment', 'commentDate',
     ];
     //se especifica el tipo de relacion que posee la clase
+    //la clase "Rating" pertenece  a un objeto de la clase "ad"
     public function ad(){
         return $this->belongsTo(Ad::class);
     }
