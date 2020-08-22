@@ -81,17 +81,17 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = user::findOrFail($id);
-        if ($request->get('name') != NULL){
-            $user->userName = $request->get('name');
+        if ($request->get('userName') != NULL){
+            $user->userName = $request->get('userName');
         }
-        if ($request->get('real') != NULL){
-            $user->realName = $request->get('real');
+        if ($request->get('realName') != NULL){
+            $user->realName = $request->get('realName');
         }
-        if ($request->get('mail') != NULL){
-            $user->email = $request->get('mail');
+        if ($request->get('email') != NULL){
+            $user->email = $request->get('email');
         }
-        if ($request->get('pass') != NULL){
-            $user->password = $request->get('pass');
+        if ($request->get('password') != NULL){
+            $user->password = $request->get('password');
         }
         $user->save();
         return response()->json($user);

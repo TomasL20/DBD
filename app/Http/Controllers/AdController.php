@@ -84,11 +84,11 @@ class AdController extends Controller
     public function update(Request $request, $id)
     {
         $ad = Ad::findOrFail($id);
-        if ($request->get('desc') != NULL){
-            $ad->description = $request->get('desc');
+        if ($request->get('description') != NULL){
+            $ad->description = $request->get('description');
         }
-        if ($request->get('descN') != NULL){
-            $ad->descName = $request->get('descN');;
+        if ($request->get('descName') != NULL){
+            $ad->descName = $request->get('descName');;
         }
         $ad->save();
     

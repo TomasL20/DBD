@@ -79,8 +79,8 @@ class PaymentController extends Controller
     public function update(Request $request, $id)
     {
         $payment = Payment::findOrFail($id);
-        if ($request->get('pay') != NULL){
-            $payment->paymentType = $request->get('pay');
+        if ($request->get('paymentType') != NULL){
+            $payment->paymentType = $request->get('paymentType');
         }
         $payment->save();
         return response()->json($payment);

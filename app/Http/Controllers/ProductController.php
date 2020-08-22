@@ -79,8 +79,8 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-        if ($request->get('name') != NULL){
-            $product->prodName = $request->get('name');
+        if ($request->get('prodName') != NULL){
+            $product->prodName = $request->get('prodName');
         }
         $product->save();
         return response()->json($product);
