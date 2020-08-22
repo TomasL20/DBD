@@ -43,7 +43,8 @@ class RatingController extends Controller
         $newRating->save();
         return response()->json([
             
-            "message"=> "Created"
+            "message"=> "Nueva valoración creada.",
+            "idRatingCreated"=> $newRating->id
             
         ],201);
     }
@@ -106,7 +107,7 @@ class RatingController extends Controller
         if($rating != NULL){
             $rating->delete();
             return response()->json([
-                "message"=> "se elimina la valoración",
+                "message"=> "Se elimina la valoración.",
                 "idRating" => $rating->id
             ]);   
         }

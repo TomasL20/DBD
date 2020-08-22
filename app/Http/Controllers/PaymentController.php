@@ -41,7 +41,8 @@ class PaymentController extends Controller
         $newPayment->save();
         return response()->json([
             
-            "message"=> "Created"
+            "message"=> "Nuevo pago creado.",
+            "idPaymentCreated"=> $newPayment->id
             
         ],201);
     }
@@ -98,7 +99,7 @@ class PaymentController extends Controller
         if($payment != NULL){
             $payment->delete();
             return response()->json([
-                "message"=> "se elimina el pago",
+                "message"=> "Se elimina el pago.",
                 "idPayment" => $payment->id
             ]);   
         }

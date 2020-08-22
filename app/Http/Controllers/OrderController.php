@@ -42,7 +42,8 @@ class OrderController extends Controller
         $newOrder->save();
         return response()->json([
             
-            "message"=> "Order Created"
+            "message"=> "Nuevo pedido creado.",
+            "idOrderCreated"=> $newOrder->id
             
         ],201);
     }
@@ -102,7 +103,7 @@ class OrderController extends Controller
         if($order != NULL){
             $order->delete();
             return response()->json([
-                "message"=> "se elimina el pedido",
+                "message"=> "Se elimina el pedido.",
                 "idOrder" => $order->id
             ]);   
         }

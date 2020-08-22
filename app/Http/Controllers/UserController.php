@@ -43,7 +43,8 @@ class UserController extends Controller
         $newUser->password = $request->password;
         return response()->json([
             
-            "message"=> "Created"
+            "message"=> "Nuevo usuario creado.",
+            "idUserCreated"=> $newUser->id
             
         ],201);
     }
@@ -109,7 +110,7 @@ class UserController extends Controller
         if($user != NULL){
             $user->delete();
             return response()->json([
-                "message"=> "se elimina el usuario",
+                "message"=> "Se elimina el usuario.",
                 "idUser" => $user->id
             ]);   
         }

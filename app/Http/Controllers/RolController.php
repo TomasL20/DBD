@@ -40,7 +40,8 @@ class RolController extends Controller
         $newRol->description= $request->description;
         return response()->json([
             
-            "message"=> "Created"
+            "message"=> "Nuevo rol creado.",
+            "idRolCreated"=> $newRol->id
             
         ],201);
     }
@@ -97,7 +98,7 @@ class RolController extends Controller
         if($rol != NULL){
             $rol->delete();
             return response()->json([
-                "message"=> "se elimina el rol",
+                "message"=> "Se elimina el rol.",
                 "idRol" => $rol->id
             ]);   
         }

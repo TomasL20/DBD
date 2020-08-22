@@ -47,8 +47,8 @@ class AdController extends Controller
         $newAd->save();
         return response()->json([
             
-            "message"=> "Ad Created",
-            "idAd"=> $newAd->id
+            "message"=> "Nuevo anuncio creado.",
+            "idAdCreated"=> $newAd->id
         ],201);
     }
 
@@ -120,7 +120,7 @@ class AdController extends Controller
         if($ad != NULL){
             $ad->delete();
             return response()->json([
-                "message"=> "se elimina el anuncio",
+                "message"=> "Se elimina el anuncio.",
                 "idAd" => $ad->id
             ]);   
         }

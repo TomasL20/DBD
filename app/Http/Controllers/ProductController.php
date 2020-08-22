@@ -41,7 +41,8 @@ class ProductController extends Controller
         $newProduct->save();
         return response()->json([
             
-            "message"=> "Created"
+            "message"=> "Nuevo producto creado.",
+            "idProductCreated" => $newProduct->id
             
         ],201);
     }
@@ -97,7 +98,7 @@ class ProductController extends Controller
         if($product != NULL){
             $product->delete();
             return response()->json([
-                "message"=> "se elimina el producto",
+                "message"=> "Se elimina el producto.",
                 "idProduct" => $product->id
             ]);   
         }

@@ -41,7 +41,8 @@ class CategoryController extends Controller
         $newCategory->save();
         return response()->json([
             
-            "message"=> "Category Created"
+            "message"=> "Nueva categoría creada",
+            "idCategoryCreated"=>$newCategory->id
             
         ],201);
     }
@@ -99,7 +100,7 @@ class CategoryController extends Controller
         if($category != NULL){
             $category->delete();
             return response()->json([
-                "message"=> "se elimina la categoría",
+                "message"=> "Se elimina la categoría.",
                 "idCategory" => $category->id
             ]);   
         }

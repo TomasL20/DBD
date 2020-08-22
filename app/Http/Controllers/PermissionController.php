@@ -40,7 +40,8 @@ class PermissionController extends Controller
         $newPermission->description = $request->description;
         $newPermission->save();
         return response()->json([
-            "message"=> "Created"
+            "message"=> "Nuevo permiso creado.",
+            "idPermissionCreated"=> $newPermission->id
         ],201);
 
     }
@@ -97,7 +98,7 @@ class PermissionController extends Controller
         if($permission != NULL){
             $permission->delete();
             return response()->json([
-                "message"=> "se elimina el permiso",
+                "message"=> "Se elimina el permiso.",
                 "idAd" => $permission->id
             ]);   
         }
