@@ -9,7 +9,7 @@ class Rol extends Model
     protected $fillable = [
         'description',
     ];
-
+    protected $primaryKey = 'idRol';
     public function rolPermission(){
         return $this->hasMany(RolPermission::class);
     }

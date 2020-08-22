@@ -9,7 +9,7 @@ class Product extends Model
     protected $fillable = [
         'prodName',
     ];
-
+    protected $primaryKey = 'idProducto';
     public function ad(){
         return $this->hasMany(Ad::class);
     }
