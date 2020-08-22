@@ -16,9 +16,9 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id('id'); //Identificador de la tabla "orders"
             //Se crean las llaves foraneas
-            $table->unsignedBigInteger('idUser');//Llave foranea que corresponde la identificador del usuario
-            $table->unsignedBigInteger('idAd');//Llave foranea que corresponde al identificador del anuncio
-            $table->unsignedBigInteger('idPay');//Llave foranea que corresponde al identificador del pago
+            $table->unsignedBigInteger('idUser')->nullable();//Llave foranea que corresponde la identificador del usuario
+            $table->unsignedBigInteger('idAd')->nullable();//Llave foranea que corresponde al identificador del anuncio
+            $table->unsignedBigInteger('idPay')->nullable();//Llave foranea que corresponde al identificador del pago
 
             $table->float('totalPrice'); //Corresponde al precio total de la orden
             $table->integer('quantity');//Corresponde a la cantidad de productos de la orden

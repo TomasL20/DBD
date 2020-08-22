@@ -40,14 +40,15 @@ class AdController extends Controller
         $newAd->description = $request->description;
         $newAd->descName = $request->descName;
         $newAd->arrInfo = $request->arrInfo;
+        $newAd->price = $request->price;
         $newAd->stock = $request->stock;
         $newAd->status = $request->status;
         $newAd->location = $request->location;
         $newAd->save();
         return response()->json([
             
-            "message"=> "Ad Created"
-            
+            "message"=> "Ad Created",
+            "idAd"=> $newAd->id
         ],201);
     }
 
@@ -105,7 +106,10 @@ class AdController extends Controller
     public function destroy($id)
     {
         $ad = Ad::find($id);
-        $ad->delete();
-        return "el anuncio fue eliminado";
+        if($ad != NULL){
+            $ad->delete();
+            return "el anuncio fue eliminado";    
+        }
+        return "No existe anuncio con esa ID";
     }
 }

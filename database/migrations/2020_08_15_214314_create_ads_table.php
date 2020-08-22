@@ -16,8 +16,8 @@ class CreateAdsTable extends Migration
         Schema::create('ads', function (Blueprint $table) {
             $table->id('id'); //Identifiador de la tabla anuncios
             //Se crean las llaves foraneas
-            $table->unsignedBigInteger('idProd'); //Llave foranea de la tabla anuncios correspondiente al identificador del producto
-            $table->unsignedBigInteger('idUser');//Llave foranea de la tabla anuncio correspondiente al identificador del usuario
+            $table->unsignedBigInteger('idProd')->nullable(); //Llave foranea de la tabla anuncios correspondiente al identificador del producto
+            $table->unsignedBigInteger('idUser')->nullable();//Llave foranea de la tabla anuncio correspondiente al identificador del usuario
 
             $table->string('description'); // String, que corresponde a la descriocion del anuncio
             $table->string('descName');//Nombre de la descripcion 
