@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+//Se hace la migracion de la tabla  orden "orders"
 class CreateOrdersTable extends Migration
 {
     /**
@@ -14,19 +14,20 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id('id');
-            $table->unsignedBigInteger('idUser');
-            $table->unsignedBigInteger('idAd');
-            $table->unsignedBigInteger('idPay');
+            $table->id('id'); //Identificador de la tabla "orders"
+            //Se crean las llaves foraneas
+            $table->unsignedBigInteger('idUser');//Llave foranea que corresponde la identificador del usuario
+            $table->unsignedBigInteger('idAd');//Llave foranea que corresponde al identificador del anuncio
+            $table->unsignedBigInteger('idPay');//Llave foranea que corresponde al identificador del pago
 
-            $table->float('totalPrice');
-            $table->integer('quantity');
+            $table->float('totalPrice'); //Corresponde al precio total de la orden
+            $table->integer('quantity');//Corresponde a la cantidad de productos de la orden
             $table->timestamp('reservedAt');
             $table->timestamp('freeAt');
-
-            $table->foreign('idUser')->references('id')->on('users');
-            $table->foreign('idAd')->references('id')->on('ads');
-            $table->foreign('idPay')->references('id')->on('payments');
+            //Se referencian las llaves foraneas
+            $table->foreign('idUser')->references('id')->on('users'); //se referencia la llave foranea que proviene de usuarios "users"
+            $table->foreign('idAd')->references('id')->on('ads'); //se referencia la llave foranea que proviene de anuncio "ads"
+            $table->foreign('idPay')->references('id')->on('payments'); // se referencia la llave foranea que proviene de pago "payments"
 
 
             $table->timestamps();
