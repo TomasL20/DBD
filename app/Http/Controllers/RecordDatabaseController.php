@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\RecordDatabase;
 
 class RecordDatabaseController extends Controller
 {
@@ -13,7 +14,8 @@ class RecordDatabaseController extends Controller
      */
     public function index()
     {
-        //
+        $recorddatabase = RecordDatabase::all();
+        return response()->json($recorddatabase);
     }
 
     /**
