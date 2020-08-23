@@ -22,7 +22,14 @@ class RolPermissionController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $newRP = new RolPermission();
+        $newRP->idPer = $request->idPer;
+        $newRP->idRol = $request->idRol;
+        $newRP->save();
+        return response()->json([
+            "message"=> "Nuevo usuario-rol creado.",
+            "idUserRolPermissionCreated"=> $newRP->id
+        ],201);
     }
 
     //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado

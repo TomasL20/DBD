@@ -22,7 +22,14 @@ class UserRolController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $newUR = new UserRol();
+        $newUR->idUser = $request->idUser;
+        $newUR->idRol = $request->idRol;
+        $newUR->save();
+        return response()->json([
+            "message"=> "Nuevo usuario-rol creado.",
+            "idUserRolCreated"=> $newUR->id
+        ],201);
     }
     //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado
     public function show($id)
