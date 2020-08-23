@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password'); //clave del usuario
             $table->rememberToken();
+            $table->timestamp('eliminatedAt')->nullable();
             $table->timestamps(); //saber cuando se crea una tabla, o cuando se ha hecho una migracion.
         });
     }

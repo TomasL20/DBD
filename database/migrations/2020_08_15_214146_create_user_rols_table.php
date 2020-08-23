@@ -22,6 +22,7 @@ class CreateUserRolsTable extends Migration
             //Se referencian las llaves foraneas
             $table->foreign('idRol')->references('id')->on('rols');// Se referenacia la llave foranea de la tabla rol
             $table->foreign('idUser')->references('id')->on('users');//Se referencia la llave foranea  de la tabla usuarios
+            $table->timestamp('eliminatedAt')->nullable();
             $table->timestamps();
         });
     }

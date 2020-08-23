@@ -15,7 +15,7 @@ class RolController extends Controller
     //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
-        $rol = Rol::all();
+        $rol = Rol::all()->where('eliminatedAt',null);
         return response()->json($rol);
     }
 
@@ -59,6 +59,7 @@ class RolController extends Controller
     public function show($id)
     {
         $rol = Rol::find($id);
+        $rol->where('eliminatedAt',null);
         return response()->json($rol);
     }
 
@@ -85,11 +86,15 @@ class RolController extends Controller
     public function update(Request $request, $id)
     {
         $rol = rol::findOrFail($id);
-        if ($request->get('description') != NULL){
-            $rol->description = $request->get('description');
+        $rol->where('eliminatedAt',null);
+        if($rol != NULL){
+            if ($request->get('description') != NULL){
+                $rol->description = $request->get('description');
+            }
+            $rol->save();
+            return response()->json($rol);
         }
-        $rol->save();
-        return response()->json($rol);
+        return "El rol con esa ID no existe.";
     }
 
     /**

@@ -28,6 +28,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('idUser')->references('id')->on('users'); //se referencia la llave foranea que proviene de usuarios "users"
             $table->foreign('idAd')->references('id')->on('ads'); //se referencia la llave foranea que proviene de anuncio "ads"
             $table->foreign('idPay')->references('id')->on('payments'); // se referencia la llave foranea que proviene de pago "payments"
+            $table->timestamp('eliminatedAt')->nullable();
 
 
             $table->timestamps();

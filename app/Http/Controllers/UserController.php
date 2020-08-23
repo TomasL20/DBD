@@ -15,7 +15,7 @@ class UserController extends Controller
     //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
-        $user = User::all();
+        $user = User::all()->where('eliminatedAt',null);
         return response()->json($user);
     }
 
@@ -62,6 +62,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        $user->where('eliminatedAt',null);
         return response()->json($user);
     }
 
@@ -87,20 +88,24 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = user::findOrFail($id);
-        if ($request->get('userName') != NULL){
-            $user->userName = $request->get('userName');
+        $user->where('eliminatedAt',null);
+        if($user != NULL){
+            if ($request->get('userName') != NULL){
+                $user->userName = $request->get('userName');
+            }
+            if ($request->get('realName') != NULL){
+                $user->realName = $request->get('realName');
+            }
+            if ($request->get('email') != NULL){
+                $user->email = $request->get('email');
+            }
+            if ($request->get('password') != NULL){
+                $user->password = $request->get('password');
+            }
+            $user->save();
+            return response()->json($user);
         }
-        if ($request->get('realName') != NULL){
-            $user->realName = $request->get('realName');
-        }
-        if ($request->get('email') != NULL){
-            $user->email = $request->get('email');
-        }
-        if ($request->get('password') != NULL){
-            $user->password = $request->get('password');
-        }
-        $user->save();
-        return response()->json($user);
+        return "El usuario con esa ID no existe";
     }
 
     /**

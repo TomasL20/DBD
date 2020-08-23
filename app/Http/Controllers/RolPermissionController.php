@@ -15,7 +15,7 @@ class RolPermissionController extends Controller
     //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
-        $rolpermission = RolPermission::all();
+        $rolpermission = RolPermission::all()->where('eliminatedAt',null);
         return response()->json($rolpermission);
     }
 
@@ -50,6 +50,7 @@ class RolPermissionController extends Controller
     public function show($id)
     {
         $rolpermission = RolPermission::find($id);
+        $rolpermission->where('eliminatedAt',null);
         return response()->json($rolpermission);
     }
 

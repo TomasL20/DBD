@@ -16,7 +16,7 @@ class RecordController extends Controller
     //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
-        $record = Record::all();
+        $record = Record::all()->where('eliminatedAt',null);
         return response()->json($record);
     }
 
@@ -61,6 +61,7 @@ class RecordController extends Controller
     public function show($id)
     {
         $record = Record::find($id);
+        $record->where('eliminatedAt',null);
         return response()->json($record);
     }
 

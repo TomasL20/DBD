@@ -15,8 +15,8 @@ class AdController extends Controller
     //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
-        $ad = Ad::all();
-        return response()->json($ad);        
+        $ad = Ad::all()->where('eliminatedAt',null);
+        return response()->json($ad);
     }
 
     /**
@@ -66,6 +66,7 @@ class AdController extends Controller
     public function show($id)
     {
         $ad = Ad::find($id);
+        $ad->where('eliminatedAt',null);
         return response()->json($ad);
     }
 
@@ -91,27 +92,31 @@ class AdController extends Controller
     //Funcion que cambia una tupla, la modifica con respecto al id y request entregado
     public function update(Request $request, $id)
     {
-        $ad = Ad::findOrFail($id);
-        if ($request->get('description') != NULL){
-            $ad->description = $request->get('description');
+        $ad = Ad::find($id);
+        $ad->where('eliminatedAt',null);
+        if($ad != NULL){
+            if ($request->get('description') != NULL){
+                $ad->description = $request->get('description');
+            }
+            if ($request->get('descName') != NULL){
+                $ad->descName = $request->get('descName');
+            }
+            if ($request->get('arrInfo') != NULL){
+                $ad->arrInfo = $request->get('arrInfo');
+            }
+            if ($request->get('stock') != NULL){
+                $ad->stock = $request->get('stock');
+            }
+            if ($request->get('status') != NULL){
+                $ad->status = $request->get('status');
+            }
+            if ($request->get('location') != NULL){
+                $ad->location = $request->get('location');
+            }
+            $ad->save();
+            return response()->json($ad);
         }
-        if ($request->get('descName') != NULL){
-            $ad->descName = $request->get('descName');;
-        }
-        if ($request->get('arrInfo') != NULL){
-            $ad->arrInfo = $request->get('arrInfo');;
-        }
-        if ($request->get('stock') != NULL){
-            $ad->stock = $request->get('stock');
-        }
-        if ($request->get('status') != NULL){
-            $ad->status = $request->get('status');;
-        }
-        if ($request->get('location') != NULL){
-            $ad->location = $request->get('location');;
-        }
-        $ad->save();
-        return response()->json($ad);
+        return "No existe anuncio con esa ID.";
     }
     //retorna la salida modificada en formato Json
  
@@ -127,6 +132,7 @@ class AdController extends Controller
     public function destroy($id)
     {
         $ad = Ad::find($id);
+        $ad->where('eliminatedAt',null);
         if($ad != NULL){
             $ad->delete();
             return response()->json([
@@ -135,5 +141,33 @@ class AdController extends Controller
             ]);   
         }
         return "No existe anuncio con esa ID";
+    }
+    //soft
+    public function delete($id){
+        $ad = Ad::find($id);
+        $ad->where('eliminatedAt',null);
+        if($ad != NULL){
+            $ad->eliminatedAt = now();
+            $ad->save();
+            return response()->json([
+                "message"=> "Se elimina el anuncio. (soft)",
+                "idAd" => $ad->id
+            ]);   
+        }
+        return "No existe anuncio con esa ID";
+    }
+    //restore
+    public function restore($id){
+        $ad = Ad::find($id);
+        $ad->where('eliminatedAt',"!=",null);
+        if($ad != NULL){
+            $ad->eliminatedAt = NULL;
+            $ad->save();
+            return response()->json([
+                "message"=> "Se ha restaurado el anuncio.",
+                "idAd" => $ad->id
+            ]);
+        }
+        return "El anuncio no existe o no está eliminado.";
     }
 }

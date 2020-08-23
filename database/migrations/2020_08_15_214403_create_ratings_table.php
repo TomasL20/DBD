@@ -24,6 +24,7 @@ class CreateRatingsTable extends Migration
 
             //Se referencia la llave foranea
             $table->foreign('idAd')->references('id')->on('ads'); //Se referencia la llave foranea que proviene de anuncios "ads"
+            $table->timestamp('eliminatedAt')->nullable();
             
             $table->timestamps();
         });

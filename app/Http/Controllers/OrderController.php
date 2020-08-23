@@ -14,7 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order = Order::all();
+        $order = Order::all()->where('eliminatedAt',null);
         return response()->json($order);
     }
 
@@ -59,6 +59,7 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::find($id);
+        $order->where('eliminatedAt',null);
         return response()->json($order);
     }
 
@@ -85,14 +86,18 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
         $order = Order::findOrFail($id);
-        if ($request->get('totalPrice') != NULL){
-            $order->totalPrice = $request->get('totalPrice');
+        $order->where('eliminatedAt',null);
+        if($order != NULL){       
+            if ($request->get('totalPrice') != NULL){
+                $order->totalPrice = $request->get('totalPrice');
+            }
+            if ($request->get('quantity') != NULL){
+                $order->quantity = $request->get('quantity');;
+            }
+            $order->save();
+            return response()->json($order);
         }
-        if ($request->get('quantity') != NULL){
-            $order->quantity = $request->get('quantity');;
-        }
-        $order->save();
-        return response()->json($order);
+        return "No se ha encontrado pedido con esa ID";
     }
 
     /**

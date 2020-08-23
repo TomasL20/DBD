@@ -15,7 +15,7 @@ class UserRolController extends Controller
     //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
-        $userrol = UserRol::all();
+        $userrol = UserRol::all()->where('eliminatedAt',null);
         return response()->json($userrol);
     }
 
@@ -50,6 +50,7 @@ class UserRolController extends Controller
     public function show($id)
     {
         $userrol = UserRol::find($id);
+        $userrol->where('eliminatedAt',null);
         return response()->json($userrol);
     }
 

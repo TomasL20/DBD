@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 
+
 class CategoryController extends Controller
 {
     /**
@@ -16,7 +17,7 @@ class CategoryController extends Controller
     //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
-        $category = Category::all();
+        $category = Category::all()->where('eliminatedAt',null);
         return response()->json($category);
     }
 
@@ -60,6 +61,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
+        $category-> where('eliminatedAt',null);
         return response()->json($category);
     }
 
@@ -86,12 +88,16 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $category = Category::findOrFail($id);
-        if ($request->get('catName') != NULL){
-            $category->catName = $request->get('catName');
+        $category->where('eliminatedAt',null);
+        if($category != NULL){
+            if ($request->get('catName') != NULL){
+                $category->catName = $request->get('catName');
+            }
+            $category->save();
+        
+            return response()->json($category);
         }
-        $category->save();
-    
-        return response()->json($category);
+        return "No existe categoría con esa ID";
     }
     //retorna la salida modificada en formato Json 
 

@@ -15,7 +15,7 @@ class PaymentController extends Controller
      //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
-        $payment = Payment::all();
+        $payment = Payment::all()->where('eliminatedAt',null);
         return response()->json($payment);
     }
 
@@ -60,6 +60,7 @@ class PaymentController extends Controller
     public function show($id)
     {
         $payment = Payment::find($id);
+        $payment->where('eliminatedAt',null);
         return response()->json($payment);
     }
 
@@ -86,11 +87,15 @@ class PaymentController extends Controller
     public function update(Request $request, $id)
     {
         $payment = Payment::findOrFail($id);
-        if ($request->get('paymentType') != NULL){
-            $payment->paymentType = $request->get('paymentType');
+        $payment->where('eliminatedAt',null);
+        if($payment != NULL){
+            if ($request->get('paymentType') != NULL){
+                $payment->paymentType = $request->get('paymentType');
+            }
+            $payment->save();
+            return response()->json($payment);
         }
-        $payment->save();
-        return response()->json($payment);
+        return "No se ha encontrado pago con esa ID";
     }
 
     /**

@@ -16,7 +16,7 @@ class PermissionController extends Controller
     //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
-        $permission = Permission::all();
+        $permission = Permission::all()->where('eliminatedAt',null);
         return response()->json($permission);
     }
 
@@ -60,6 +60,7 @@ class PermissionController extends Controller
     public function show($id)
     {
         $permission = Permission::find($id);
+        $permission->where('eliminatedAt',null);
         return response()->json($permission);
     }
 
@@ -85,11 +86,15 @@ class PermissionController extends Controller
     public function update(Request $request, $id)
     {
         $permission = Permission::findOrFail($id);
-        if ($request->get('description') != NULL){
-            $permission->description = $request->get('description');
+        $permission->where('eliminatedAt',null);
+        if($permission != NULL){
+            if ($request->get('description') != NULL){
+                $permission->description = $request->get('description');
+            }
+            $permission->save();
+            return response()->json($permission);
         }
-        $permission->save();
-        return response()->json($permission);
+        return "El permiso con esa ID no existe";
     }
 
     /**

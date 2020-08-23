@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('prodName'); //Nombre del produto 
             //Referenciamos foranea
             $table->foreign('idCat')->references('id')->on('categories'); // Se referencia la foranea de la tabla categoria
+            $table->timestamp('eliminatedAt')->nullable();
             $table->timestamps();
         });
     }

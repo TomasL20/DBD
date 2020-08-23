@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
+        $product = Product::all()->where('eliminatedAt',null);
         return response()->json($product);
     }
 
@@ -60,6 +60,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
+        $product->where('eliminatedAt',null);
         return response()->json($product);
     }
 
@@ -85,11 +86,15 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-        if ($request->get('prodName') != NULL){
-            $product->prodName = $request->get('prodName');
+        $product->where('eliminatedAt',null);
+        if($product != NULL){
+            if ($request->get('prodName') != NULL){
+                $product->prodName = $request->get('prodName');
+            }
+            $product->save();
+            return response()->json($product);
         }
-        $product->save();
-        return response()->json($product);
+        return "El producto con esa ID no existe";
     }
     /**
      * Remove the specified resource from storage.

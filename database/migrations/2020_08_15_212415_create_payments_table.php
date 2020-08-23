@@ -19,6 +19,7 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id('id'); //Identificador de la transaccion del pago
             $table->string('paymentType'); //Corresponde al tipo de pago realizado o "metodo de pago"
+            $table->timestamp('eliminatedAt')->nullable();
             $table->timestamps();
         });
     }

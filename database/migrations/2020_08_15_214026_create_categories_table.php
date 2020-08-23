@@ -16,6 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id('id'); //Identificador de la categoria
             $table->string('catName'); //Nombre de la categoria 
+            $table->timestamp('eliminatedAt')->nullable();
             $table->timestamps();
         });
     }

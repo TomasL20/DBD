@@ -23,6 +23,8 @@ Route::get('/ad/{id}','AdController@show');
 Route::delete('/ad/delete/{id}','AdController@destroy');
 Route::post('/ad/create','AdController@store');
 Route::put('/ad/update/{id}','AdController@update');
+Route::delete('/ad/sdelete/{id}','AdController@delete');
+Route::put('/ad/restore/{id}','AdController@restore');
 
 //Rutas de Category
 Route::get('/category/all','CategoryController@index');
@@ -30,6 +32,7 @@ Route::get('/category/{id}','CategoryController@show');
 Route::delete('/category/delete/{id}','CategoryController@destroy');
 Route::post('/category/create','CategoryController@store');
 Route::put('/category/update/{id}','CategoryController@update');
+Route::post('/category/restore/{id}','CategoryController@restore');
 
 //Rutas de Order
 Route::get('/order/all','OrderController@index');

@@ -15,7 +15,7 @@ class RatingController extends Controller
     //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
-        $rating = Rating::all();
+        $rating = Rating::all()->where('eliminatedAt',null);
         return response()->json($rating);
     }
 
@@ -62,6 +62,7 @@ class RatingController extends Controller
     public function show($id)
     {
         $rating = Rating::find($id);
+        $rating->where('eliminatedAt',null);
         return response()->json($rating);
     }
 
@@ -88,17 +89,21 @@ class RatingController extends Controller
     public function update(Request $request, $id)
     {
         $rating = rating::findOrFail($id);
-        if ($request->get('rating') != NULL){
-            $rating->rating = $request->get('rating');
+        $rating->where('eliminatedAt',null);
+        if($rating != NULL){
+            if ($request->get('rating') != NULL){
+                $rating->rating = $request->get('rating');
+            }
+            if ($request->get('comment') != NULL){
+                $rating->comment = $request->get('comment');
+            }
+            if ($request->get('commentDate') != NULL){
+                $rating->commentDate = $request->get('commentDate');
+            }
+            $rating->save();
+            return response()->json($rating);
         }
-        if ($request->get('comment') != NULL){
-            $rating->comment = $request->get('comment');
-        }
-        if ($request->get('commentDate') != NULL){
-            $rating->commentDate = $request->get('commentDate');
-        }
-        $rating->save();
-        return response()->json($rating);
+        return "La valoración con esa ID no existe.";
     }
 
     /**

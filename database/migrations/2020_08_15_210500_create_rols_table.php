@@ -16,6 +16,7 @@ class CreateRolsTable extends Migration
         Schema::create('rols', function (Blueprint $table) {
             $table->id('id'); //Identificador del rol
             $table->string('description');//Descripcion de las cualidades que posee el rol
+            $table->timestamp('eliminatedAt')->nullable();
             $table->timestamps();
         });
     }

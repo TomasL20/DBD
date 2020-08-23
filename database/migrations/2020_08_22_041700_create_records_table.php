@@ -18,6 +18,7 @@ class CreateRecordsTable extends Migration
             $table->string('action'); //Corresponde al ghistorial de la base de datos, lo que se ha realizado
             $table->timestamp('createdAt'); //Fecha de cracion de la accion o el historial
             $table->timestamp('updatedAt'); //Fecha de actualizacion del historial
+            $table->timestamp('eliminatedAt')->nullable();
             $table->timestamps();
         });
     }

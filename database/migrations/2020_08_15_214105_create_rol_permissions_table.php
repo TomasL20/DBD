@@ -21,6 +21,7 @@ class CreateRolPermissionsTable extends Migration
             //Se referencian las llaves foraneas
             $table->foreign('idRol')->references('id')->on('rols'); //corresponde a la llave foranea de la tabla rol
             $table->foreign('idPer')->references('id')->on('permissions'); //corresponde a la llave forane a de la tabla permisos
+            $table->timestamp('eliminatedAt')->nullable();
             $table->timestamps();
         });
     }
