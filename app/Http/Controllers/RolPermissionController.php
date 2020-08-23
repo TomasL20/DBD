@@ -12,6 +12,7 @@ class RolPermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
         $rolpermission = RolPermission::all();
@@ -45,6 +46,7 @@ class RolPermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado
     public function show($id)
     {
         $rolpermission = RolPermission::find($id);
