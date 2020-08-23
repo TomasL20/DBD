@@ -87,6 +87,9 @@ class AdController extends Controller
             if ($request->get('location') != NULL){
                 $ad->location = $request->get('location');
             }
+            if($request->get('price') != NULL){
+                $ad->price = $request->get('price');
+            }
             $ad->save();
             return response()->json($ad);
         }
