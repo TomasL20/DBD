@@ -12,7 +12,6 @@ class RolPermissionTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-            factory(App\RolPermission::class, 30)->create(); // secrean 30 datos , los cuales son llamados desde la factory "rolpermission"
+        factory(RolPermission::class, 30)->create(); // secrean 30 datos , los cuales son llamados desde la factory "rolpermission"
     }
 }

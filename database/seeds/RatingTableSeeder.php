@@ -12,7 +12,6 @@ class RatingTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        factory(App\Rating::class, 30)->create(); // secrean 30 datos , los cuales son llamados desde la factory "rating"
+        factory(Rating::class, 30)->create(); // secrean 30 datos , los cuales son llamados desde la factory "rating"
     }
 }
