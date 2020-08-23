@@ -106,4 +106,32 @@ class RecordController extends Controller
         }
         return "No existe registro con esa ID";
     }
+    //soft
+    public function delete($id){
+        $record = Record::find($id);
+        $record->where('eliminatedAt',null);
+        if($record != NULL){
+            $record->eliminatedAt = now();
+            $record->save();
+            return response()->json([
+                "message"=> "Se elimina el registro. (soft)",
+                "idRecord" => $record->id
+            ]);   
+        }
+        return "No existe registro con esa ID";
+    }
+    //restore
+    public function restore($id){
+        $record = Record::find($id);
+        $record->where('eliminatedAt',"!=",null);
+        if($record != NULL){
+            $record->eliminatedAt = NULL;
+            $record->save();
+            return response()->json([
+                "message"=> "Se ha restaurado el registro.",
+                "idRecord" => $record->id
+            ]);
+        }
+        return "El registro no existe o no está eliminado.";
+    }
 }

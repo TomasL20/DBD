@@ -118,4 +118,32 @@ class PaymentController extends Controller
         }
         return "No existe pago con esa ID";
     }
+    //soft
+    public function delete($id){
+        $payment = Payment::find($id);
+        $payment->where('eliminatedAt',null);
+        if($payment != NULL){
+            $payment->eliminatedAt = now();
+            $payment->save();
+            return response()->json([
+                "message"=> "Se elimina el pago. (soft)",
+                "idPayment" => $payment->id
+            ]);   
+        }
+        return "No existe pago con esa ID";
+    }
+    //restore
+    public function restore($id){
+        $payment = Payment::find($id);
+        $payment->where('eliminatedAt',"!=",null);
+        if($payment != NULL){
+            $payment->eliminatedAt = NULL;
+            $payment->save();
+            return response()->json([
+                "message"=> "Se ha restaurado el pago.",
+                "idPayment" => $payment->id
+            ]);
+        }
+        return "El pago no existe o no está eliminado.";
+    }
 }

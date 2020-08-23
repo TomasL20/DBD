@@ -116,4 +116,32 @@ class RolController extends Controller
         }
         return "No existe rol con esa ID";
     }
+    //soft
+    public function delete($id){
+        $rol = Rol::find($id);
+        $rol->where('eliminatedAt',null);
+        if($rol != NULL){
+            $rol->eliminatedAt = now();
+            $rol->save();
+            return response()->json([
+                "message"=> "Se elimina el rol. (soft)",
+                "idRol" => $rol->id
+            ]);   
+        }
+        return "No existe rol con esa ID";
+    }
+    //restore
+    public function restore($id){
+        $rol = Rol::find($id);
+        $rol->where('eliminatedAt',"!=",null);
+        if($rol != NULL){
+            $rol->eliminatedAt = NULL;
+            $rol->save();
+            return response()->json([
+                "message"=> "Se ha restaurado el rol.",
+                "idRol" => $rol->id
+            ]);
+        }
+        return "El rol no existe o no está eliminado.";
+    }
 }

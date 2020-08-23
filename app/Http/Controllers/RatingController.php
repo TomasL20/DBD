@@ -125,4 +125,32 @@ class RatingController extends Controller
         }
         return "No existe valoración con esa ID";
     }
+    //soft
+    public function delete($id){
+        $rating = Rating::find($id);
+        $rating->where('eliminatedAt',null);
+        if($rating != NULL){
+            $rating->eliminatedAt = now();
+            $rating->save();
+            return response()->json([
+                "message"=> "Se elimina la valoración. (soft)",
+                "idRating" => $rating->id
+            ]);   
+        }
+        return "No existe anuncio con esa ID";
+    }
+    //restore
+    public function restore($id){
+        $rating = Rating::find($id);
+        $rating->where('eliminatedAt',"!=",null);
+        if($rating != NULL){
+            $rating->eliminatedAt = NULL;
+            $rating->save();
+            return response()->json([
+                "message"=> "Se ha restaurado la valoración.",
+                "idRating" => $rating->id
+            ]);
+        }
+        return "La valoración no existe o no está eliminado.";
+    }
 }

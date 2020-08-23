@@ -117,4 +117,32 @@ class PermissionController extends Controller
         return "No existe permiso con esa ID";
 
     }
+    //soft
+    public function delete($id){
+        $permission = Permission::find($id);
+        $permission->where('eliminatedAt',null);
+        if($permission != NULL){
+            $permission->eliminatedAt = now();
+            $permission->save();
+            return response()->json([
+                "message"=> "Se elimina el permiso. (soft)",
+                "idPermission" => $permission->id
+            ]);   
+        }
+        return "No existe permiso con esa ID";
+    }
+    //restore
+    public function restore($id){
+        $permission = Permission::find($id);
+        $permission->where('eliminatedAt',"!=",null);
+        if($permission != NULL){
+            $permission->eliminatedAt = NULL;
+            $permission->save();
+            return response()->json([
+                "message"=> "Se ha restaurado el permiso.",
+                "idPermission" => $permission->id
+            ]);
+        }
+        return "El permiso no existe o no está eliminado.";
+    }
 }

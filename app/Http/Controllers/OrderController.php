@@ -120,4 +120,32 @@ class OrderController extends Controller
         }
         return "No existe pedido con esa ID";
     }
+    //soft
+    public function delete($id){
+        $order = Order::find($id);
+        $order->where('eliminatedAt',null);
+        if($order != NULL){
+            $order->eliminatedAt = now();
+            $order->save();
+            return response()->json([
+                "message"=> "Se elimina el pedido. (soft)",
+                "idOrder" => $order->id
+            ]);   
+        }
+        return "No existe pedido con esa ID";
+    }
+    //restore
+    public function restore($id){
+        $order = Order::find($id);
+        $order->where('eliminatedAt',"!=",null);
+        if($order != NULL){
+            $order->eliminatedAt = NULL;
+            $order->save();
+            return response()->json([
+                "message"=> "Se ha restaurado el pedido.",
+                "idOrder" => $order->id
+            ]);
+        }
+        return "El pedido no existe o no está eliminado.";
+    }
 }

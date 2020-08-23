@@ -116,4 +116,32 @@ class ProductController extends Controller
         }
         return "No existe producto con esa ID";
     }
+    //soft
+    public function delete($id){
+        $product = Product::find($id);
+        $product->where('eliminatedAt',null);
+        if($product != NULL){
+            $product->eliminatedAt = now();
+            $product->save();
+            return response()->json([
+                "message"=> "Se elimina el producto. (soft)",
+                "idProduct" => $product->id
+            ]);   
+        }
+        return "No existe producto con esa ID";
+    }
+    //restore
+    public function restore($id){
+        $product = Product::find($id);
+        $product->where('eliminatedAt',"!=",null);
+        if($product != NULL){
+            $product->eliminatedAt = NULL;
+            $product->save();
+            return response()->json([
+                "message"=> "Se ha restaurado el producto.",
+                "idProduct" => $product->id
+            ]);
+        }
+        return "El producto no existe o no está eliminado.";
+    }
 }

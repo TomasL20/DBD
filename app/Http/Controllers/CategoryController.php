@@ -121,4 +121,32 @@ class CategoryController extends Controller
         }
         return "No existe categoría con esa ID";
     }
+    //soft
+    public function delete($id){
+        $category = Category::find($id);
+        $category->where('eliminatedAt',null);
+        if($category != NULL){
+            $category->eliminatedAt = now();
+            $category->save();
+            return response()->json([
+                "message"=> "Se elimina la categoría. (soft)",
+                "idCategory" => $category->id
+            ]);   
+        }
+        return "No existe categoría con esa ID";
+    }
+    //restore
+    public function restore($id){
+        $category = Category::find($id);
+        $category->where('eliminatedAt',"!=",null);
+        if($category != NULL){
+            $category->eliminatedAt = NULL;
+            $category->save();
+            return response()->json([
+                "message"=> "Se ha restaurado la categoría.",
+                "idCategory" => $category->id
+            ]);
+        }
+        return "La categoría no existe o no está eliminado.";
+    }
 }

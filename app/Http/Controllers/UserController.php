@@ -128,4 +128,32 @@ class UserController extends Controller
         }
         return "No existe usuario con esa ID";
     }
+    //soft
+    public function delete($id){
+        $user = User::find($id);
+        $user->where('eliminatedAt',null);
+        if($user != NULL){
+            $user->eliminatedAt = now();
+            $user->save();
+            return response()->json([
+                "message"=> "Se elimina el usuario. (soft)",
+                "idUser" => $user->id
+            ]);   
+        }
+        return "No existe usuario con esa ID";
+    }
+    //restore
+    public function restore($id){
+        $user = User::find($id);
+        $user->where('eliminatedAt',"!=",null);
+        if($user != NULL){
+            $user->eliminatedAt = NULL;
+            $user->save();
+            return response()->json([
+                "message"=> "Se ha restaurado el usuario.",
+                "idUser" => $user->id
+            ]);
+        }
+        return "El usuario no existe o no está eliminado.";
+    }
 }
