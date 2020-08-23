@@ -88,7 +88,7 @@ class RatingController extends Controller
     //Funcion que cambia una tupla, la modifica con respecto al id y request entregado 
     public function update(Request $request, $id)
     {
-        $rating = rating::findOrFail($id);
+        $rating = Rating::findOrFail($id);
         $rating->where('eliminatedAt',null);
         if($rating != NULL){
             if ($request->get('rating') != NULL){

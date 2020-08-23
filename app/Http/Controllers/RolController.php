@@ -85,7 +85,7 @@ class RolController extends Controller
     //Funcion que cambia una tupla, la modifica con respecto al id y request entregado
     public function update(Request $request, $id)
     {
-        $rol = rol::findOrFail($id);
+        $rol = Rol::findOrFail($id);
         $rol->where('eliminatedAt',null);
         if($rol != NULL){
             if ($request->get('description') != NULL){
@@ -106,7 +106,7 @@ class RolController extends Controller
     //Elimina la tupla dependiendo del identificador entregado
     public function destroy($id)
     {
-        $rol = Ad::find($id);
+        $rol = Rol::find($id);
         if($rol != NULL){
             $rol->delete();
             return response()->json([

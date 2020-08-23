@@ -87,7 +87,7 @@ class UserController extends Controller
     //Funcion que cambia una tupla, la modifica con respecto al id y request entregado
     public function update(Request $request, $id)
     {
-        $user = user::findOrFail($id);
+        $user = User::findOrFail($id);
         $user->where('eliminatedAt',null);
         if($user != NULL){
             if ($request->get('userName') != NULL){
