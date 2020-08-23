@@ -23,7 +23,6 @@ class CreateProductsTable extends Migration
             //Referenciamos foranea
             $table->foreign('idCat')->references('id')->on('categories'); // Se referencia la foranea de la tabla categoria
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

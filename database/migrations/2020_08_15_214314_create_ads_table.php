@@ -30,7 +30,6 @@ class CreateAdsTable extends Migration
             $table->foreign('idProd')->references('id')->on('products'); // se referencia la llave foranea que proviene de productos "products"
             $table->foreign('idUser')->references('id')->on('users'); // se referencia la llave foranea que proviene de la tabla usuarios "users"
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

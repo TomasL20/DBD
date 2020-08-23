@@ -19,7 +19,6 @@ class CreateRecordsTable extends Migration
             $table->timestamp('createdAt'); //Fecha de cracion de la accion o el historial
             $table->timestamp('updatedAt'); //Fecha de actualizacion del historial
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

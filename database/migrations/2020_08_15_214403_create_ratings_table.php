@@ -26,7 +26,6 @@ class CreateRatingsTable extends Migration
             $table->foreign('idAd')->references('id')->on('ads'); //Se referencia la llave foranea que proviene de anuncios "ads"
             
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

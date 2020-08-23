@@ -17,7 +17,6 @@ class CreateRolsTable extends Migration
             $table->id('id'); //Identificador del rol
             $table->string('description');//Descripcion de las cualidades que posee el rol
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

@@ -18,7 +18,6 @@ class CreatePermissionsTable extends Migration
             $table->id('id'); //Identificador del permiso
             $table->string('description'); //Descripcion de las cualidades que posee el permiso
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

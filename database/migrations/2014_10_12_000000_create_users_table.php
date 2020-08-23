@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('password'); //clave del usuario
             $table->rememberToken();
             $table->timestamps(); //saber cuando se crea una tabla, o cuando se ha hecho una migracion.
-            $table->softDeletes();
         });
     }
 
