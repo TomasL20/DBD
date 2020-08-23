@@ -7,11 +7,7 @@ use App\Rating;
 
 class RatingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
@@ -19,22 +15,11 @@ class RatingController extends Controller
         return response()->json($rating);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
 
     //Elimina la tupla dependiendo del identificador entregado 
     public function store(Request $request)
@@ -52,45 +37,27 @@ class RatingController extends Controller
         ],201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado
     public function show($id)
     {
         $rating = Rating::find($id);
-        $rating->where('eliminatedAt',null);
-        return response()->json($rating);
+        if($rating != NULL && $rating->eliminatedAt == NULL){
+            return response()->json($rating);
+        }
+        return "La valoración con esa ID no existe.";
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
     //Funcion que cambia una tupla, la modifica con respecto al id y request entregado 
     public function update(Request $request, $id)
     {
         $rating = Rating::findOrFail($id);
-        $rating->where('eliminatedAt',null);
-        if($rating != NULL){
+        if($rating != NULL && $rating->eliminatedAt == NULL){
             if ($request->get('rating') != NULL){
                 $rating->rating = $request->get('rating');
             }
@@ -106,12 +73,6 @@ class RatingController extends Controller
         return "La valoración con esa ID no existe.";
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     //Elimina la tupla dependiendo del identificador entregado 
     public function destroy($id)
     {
@@ -123,13 +84,12 @@ class RatingController extends Controller
                 "idRating" => $rating->id
             ]);   
         }
-        return "No existe valoración con esa ID";
+        return "No existe valoración con esa ID.";
     }
     //soft
     public function delete($id){
         $rating = Rating::find($id);
-        $rating->where('eliminatedAt',null);
-        if($rating != NULL){
+        if($rating != NULL && $rating->eliminatedAt == NULL){
             $rating->eliminatedAt = now();
             $rating->save();
             return response()->json([
@@ -142,8 +102,7 @@ class RatingController extends Controller
     //restore
     public function restore($id){
         $rating = Rating::find($id);
-        $rating->where('eliminatedAt',"!=",null);
-        if($rating != NULL){
+        if($rating != NULL && $rating->eliminatedAt != NULL){
             $rating->eliminatedAt = NULL;
             $rating->save();
             return response()->json([

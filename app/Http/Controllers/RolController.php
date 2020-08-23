@@ -49,45 +49,28 @@ class RolController extends Controller
         ],201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado
     public function show($id)
     {
         $rol = Rol::find($id);
-        $rol->where('eliminatedAt',null);
-        return response()->json($rol);
+        if($rol != NULL && $rol->eliminatedAt == NULL){
+            return response()->json($rol);
+        }
+        return "El rol con esa ID no existe.";
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
     //Funcion que cambia una tupla, la modifica con respecto al id y request entregado
     public function update(Request $request, $id)
     {
         $rol = Rol::findOrFail($id);
-        $rol->where('eliminatedAt',null);
-        if($rol != NULL){
+        if($rating != NULL && $rating->eliminatedAt == NULL){
             if ($request->get('description') != NULL){
                 $rol->description = $request->get('description');
             }
@@ -97,12 +80,6 @@ class RolController extends Controller
         return "El rol con esa ID no existe.";
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     //Elimina la tupla dependiendo del identificador entregado
     public function destroy($id)
     {
@@ -119,8 +96,7 @@ class RolController extends Controller
     //soft
     public function delete($id){
         $rol = Rol::find($id);
-        $rol->where('eliminatedAt',null);
-        if($rol != NULL){
+        if($rating != NULL && $rating->eliminatedAt == NULL){
             $rol->eliminatedAt = now();
             $rol->save();
             return response()->json([
@@ -128,13 +104,12 @@ class RolController extends Controller
                 "idRol" => $rol->id
             ]);   
         }
-        return "No existe rol con esa ID";
+        return "No existe rol con esa ID.";
     }
     //restore
     public function restore($id){
         $rol = Rol::find($id);
-        $rol->where('eliminatedAt',"!=",null);
-        if($rol != NULL){
+        if($rating != NULL && $rating->eliminatedAt != NULL){
             $rol->eliminatedAt = NULL;
             $rol->save();
             return response()->json([

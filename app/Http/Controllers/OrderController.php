@@ -7,33 +7,18 @@ use App\Order;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $order = Order::all()->where('eliminatedAt',null);
         return response()->json($order);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $newOrder = new Order();
@@ -48,46 +33,30 @@ class OrderController extends Controller
         ],201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
     //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado
+    
     public function show($id)
     {
         $order = Order::find($id);
-        $order->where('eliminatedAt',null);
-        return response()->json($order);
+        if($order != NULL && $order->eliminatedAt == NULL){
+            return response()->json($order);
+        }
+        return "No se ha encontrado pedido con esa ID.";
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
 
     //Funcion que cambia una tupla, la modifica con respecto al id y request entregado
     public function update(Request $request, $id)
     {
         $order = Order::findOrFail($id);
-        $order->where('eliminatedAt',null);
-        if($order != NULL){       
+        if($order != NULL && $order->eliminatedAt == NULL){       
             if ($request->get('totalPrice') != NULL){
                 $order->totalPrice = $request->get('totalPrice');
             }
@@ -97,15 +66,8 @@ class OrderController extends Controller
             $order->save();
             return response()->json($order);
         }
-        return "No se ha encontrado pedido con esa ID";
+        return "No se ha encontrado pedido con esa ID.";
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
      //Elimina la tupla dependiendo del identificador entregado
     public function destroy($id)
@@ -118,13 +80,12 @@ class OrderController extends Controller
                 "idOrder" => $order->id
             ]);   
         }
-        return "No existe pedido con esa ID";
+        return "No existe pedido con esa ID.";
     }
     //soft
     public function delete($id){
         $order = Order::find($id);
-        $order->where('eliminatedAt',null);
-        if($order != NULL){
+        if($order != NULL && $order->eliminatedAt == NULL){
             $order->eliminatedAt = now();
             $order->save();
             return response()->json([
@@ -132,13 +93,12 @@ class OrderController extends Controller
                 "idOrder" => $order->id
             ]);   
         }
-        return "No existe pedido con esa ID";
+        return "No existe pedido con esa ID.";
     }
     //restore
     public function restore($id){
         $order = Order::find($id);
-        $order->where('eliminatedAt',"!=",null);
-        if($order != NULL){
+        if($order != NULL && $order->eliminatedAt != NULL){
             $order->eliminatedAt = NULL;
             $order->save();
             return response()->json([

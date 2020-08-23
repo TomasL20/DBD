@@ -8,12 +8,6 @@ use App\Category;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
@@ -21,22 +15,12 @@ class CategoryController extends Controller
         return response()->json($category);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     //Crea una nueva columna(tupla) con el id creado, especificando los campos debido al $request pasado como parametro
     public function store(Request $request)
     {
@@ -51,45 +35,31 @@ class CategoryController extends Controller
         ],201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado
+   // $category != NULL && $category->eliminatedAt == NULL
+   //return "No existe categoría con ese ID."
     public function show($id)
     {
         $category = Category::find($id);
-        $category-> where('eliminatedAt',null);
-        return response()->json($category);
+        
+        if($category != NULL && $category->eliminatedAt == NULL){
+            return response()->json($category);
+        }
+        return "No existe categoría con ese ID."
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
      //Funcion que cambia una tupla, la modifica con respecto al id y request entregado
     public function update(Request $request, $id)
     {
         $category = Category::findOrFail($id);
-        $category->where('eliminatedAt',null);
-        if($category != NULL){
+        if($category != NULL && $category->eliminatedAt == NULL){
             if ($request->get('catName') != NULL){
                 $category->catName = $request->get('catName');
             }
@@ -97,16 +67,10 @@ class CategoryController extends Controller
         
             return response()->json($category);
         }
-        return "No existe categoría con esa ID";
+        return "No existe categoría con esa ID.";
     }
     //retorna la salida modificada en formato Json 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
     //Elimina la tupla dependiendo del identificador entregado
     public function destroy($id)
@@ -119,13 +83,12 @@ class CategoryController extends Controller
                 "idCategory" => $category->id
             ]);   
         }
-        return "No existe categoría con esa ID";
+        return "No existe categoría con esa ID.";
     }
     //soft
     public function delete($id){
         $category = Category::find($id);
-        $category->where('eliminatedAt',null);
-        if($category != NULL){
+        if($category != NULL && $category->eliminatedAt == NULL){
             $category->eliminatedAt = now();
             $category->save();
             return response()->json([
@@ -133,13 +96,12 @@ class CategoryController extends Controller
                 "idCategory" => $category->id
             ]);   
         }
-        return "No existe categoría con esa ID";
+        return "No existe categoría con esa ID.";
     }
     //restore
     public function restore($id){
         $category = Category::find($id);
-        $category->where('eliminatedAt',"!=",null);
-        if($category != NULL){
+        if($category != NULL && $category->eliminatedAt != NULL){
             $category->eliminatedAt = NULL;
             $category->save();
             return response()->json([
