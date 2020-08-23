@@ -23,7 +23,7 @@ Route::get('/ad/{id}','AdController@show');
 Route::delete('/ad/delete/{id}','AdController@destroy');
 Route::post('/ad/create','AdController@store');
 Route::put('/ad/update/{id}','AdController@update');
-Route::put('/ad/sdelete/{id}','AdController@delete');
+Route::delete('/ad/sdelete/{id}','AdController@delete');
 Route::put('/ad/restore/{id}','AdController@restore');
 
 //Rutas de Category

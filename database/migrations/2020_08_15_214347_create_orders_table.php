@@ -22,8 +22,8 @@ class CreateOrdersTable extends Migration
 
             $table->float('totalPrice'); //Corresponde al precio total de la orden
             $table->integer('quantity');//Corresponde a la cantidad de productos de la orden
-            $table->timestamp('reservedAt');
-            $table->timestamp('freeAt');
+            $table->timestamp('reservedAt')->nullable();
+            $table->timestamp('freeAt')->nullable();
             //Se referencian las llaves foraneas
             $table->foreign('idUser')->references('id')->on('users'); //se referencia la llave foranea que proviene de usuarios "users"
             $table->foreign('idAd')->references('id')->on('ads'); //se referencia la llave foranea que proviene de anuncio "ads"

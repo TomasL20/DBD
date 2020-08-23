@@ -30,6 +30,7 @@ class UserController extends Controller
         $newUser->realName = $request->realName;
         $newUser->email = $request->email;
         $newUser->password = $request->password;
+        $newUser->save();
         return response()->json([
             
             "message"=> "Nuevo usuario creado.",
@@ -59,8 +60,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        $user->where('eliminatedAt',null);
-        if($user != NULL){
+        if($user != NULL && $user->eliminatedAt == NULL){
             if ($request->get('userName') != NULL){
                 $user->userName = $request->get('userName');
             }
@@ -102,8 +102,7 @@ class UserController extends Controller
     //soft
     public function delete($id){
         $user = User::find($id);
-        $user->where('eliminatedAt',null);
-        if($user != NULL){
+        if($user != NULL && $user->eliminatedAt == NULL){
             $user->eliminatedAt = now();
             $user->save();
             return response()->json([
@@ -116,8 +115,7 @@ class UserController extends Controller
     //restore
     public function restore($id){
         $user = User::find($id);
-        $user->where('eliminatedAt',"!=",null);
-        if($user != NULL){
+        if($user != NULL && $user->eliminatedAt != NULL){
             $user->eliminatedAt = NULL;
             $user->save();
             return response()->json([

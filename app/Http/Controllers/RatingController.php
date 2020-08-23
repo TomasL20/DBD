@@ -27,7 +27,7 @@ class RatingController extends Controller
         $newRating = new Rating();
         $newRating->rate = $request->rate;
         $newRating->comment = $request->comment;
-        $newRating->commentDate = $request->commentDate;
+        $newRating->commentDate = now();
         $newRating->save();
         return response()->json([
             
@@ -58,8 +58,8 @@ class RatingController extends Controller
     {
         $rating = Rating::findOrFail($id);
         if($rating != NULL && $rating->eliminatedAt == NULL){
-            if ($request->get('rating') != NULL){
-                $rating->rating = $request->get('rating');
+            if ($request->get('rate') != NULL){
+                $rating->rate = $request->get('rate');
             }
             if ($request->get('comment') != NULL){
                 $rating->comment = $request->get('comment');

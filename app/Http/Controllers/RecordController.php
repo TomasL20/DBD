@@ -72,7 +72,7 @@ class RecordController extends Controller
     //soft
     public function delete($id){
         $record = Record::find($id);
-        if($rating != NULL && $rating->eliminatedAt == NULL){
+        if($record != NULL && $record->eliminatedAt == NULL){
             $record->eliminatedAt = now();
             $record->save();
             return response()->json([
@@ -85,7 +85,7 @@ class RecordController extends Controller
     //restore
     public function restore($id){
         $record = Record::find($id);
-        if($rating != NULL && $rating->eliminatedAt != NULL){
+        if($record != NULL && $record->eliminatedAt != NULL){
             $record->eliminatedAt = NULL;
             $record->save();
             return response()->json([

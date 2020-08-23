@@ -45,7 +45,7 @@ class CategoryController extends Controller
         if($category != NULL && $category->eliminatedAt == NULL){
             return response()->json($category);
         }
-        return "No existe categoría con ese ID."
+        return "No existe categoría con ese ID.";
 
     }
 

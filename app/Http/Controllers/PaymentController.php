@@ -44,7 +44,7 @@ class PaymentController extends Controller
         if($payment != NULL && $payment->eliminatedAt == NULL){
             return response()->json($payment);
         }
-        return "No se ha encontrado pago con esa ID."
+        return "No se ha encontrado pago con esa ID.";
     }
 
     public function edit($id)
@@ -57,8 +57,7 @@ class PaymentController extends Controller
     public function update(Request $request, $id)
     {
         $payment = Payment::findOrFail($id);
-        $payment->where('eliminatedAt',null);
-        if($payment != NULL){
+        if($payment != NULL && $payment->eliminatedAt == NULL){
             if ($request->get('paymentType') != NULL){
                 $payment->paymentType = $request->get('paymentType');
             }
