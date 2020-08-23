@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Permission extends Model
 {
+    use SoftDeletes;
     //se colocan los campos los cuales se quieren llenar
     protected $fillable = [
         'description',

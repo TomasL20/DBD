@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Rating extends Model
 {
+    use SoftDeletes;
      //se colocan los campos los cuales se quieren llenar
     protected $fillable = [
         'rate', 'comment', 'commentDate',
