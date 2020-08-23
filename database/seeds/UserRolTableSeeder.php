@@ -12,7 +12,6 @@ class UserRolTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        factory(App\UserRol::class, 30)->create();// secrean 30 datos , los cuales son llamados desde la factory "UserRol"
+        factory(UserRol::class, 30)->create();// secrean 30 datos , los cuales son llamados desde la factory "UserRol"
     }
 }

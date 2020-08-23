@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id('id'); //Identificador de la categoria
             $table->string('catName'); //Nombre de la categoria 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -31,6 +31,7 @@ class CreateOrdersTable extends Migration
 
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

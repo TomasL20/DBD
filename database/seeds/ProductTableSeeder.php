@@ -12,7 +12,6 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        factory(App\Product::class, 30)->create();// secrean 30 datos , los cuales son llamados desde la factory "product"
+        factory(Product::class, 30)->create();// secrean 30 datos , los cuales son llamados desde la factory "product"
     }
 }

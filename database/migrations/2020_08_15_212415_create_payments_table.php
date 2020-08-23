@@ -20,6 +20,7 @@ class CreatePaymentsTable extends Migration
             $table->id('id'); //Identificador de la transaccion del pago
             $table->string('paymentType'); //Corresponde al tipo de pago realizado o "metodo de pago"
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
