@@ -47,6 +47,15 @@ class PaymentController extends Controller
         return "No se ha encontrado pago con esa ID.";
     }
 
+    //Función que muestra todos los datos que han sido eliminados
+    //Entrada: ninguna
+    //Salida: una respuesta en formato json de todas las tuplas que han sido eliminadas
+    public function showAllEliminated()
+    {
+        $payment = Payment::all()->where('eliminatedAt', "!=", null);
+        return response()->json($payment);
+    }
+
     public function edit($id)
     {
         //

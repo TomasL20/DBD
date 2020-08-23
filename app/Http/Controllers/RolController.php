@@ -46,6 +46,14 @@ class RolController extends Controller
         }
         return "El rol con esa ID no existe.";
     }
+    //Función que muestra todos los datos que han sido eliminados
+    //Entrada: ninguna
+    //Salida: una respuesta en formato json de todas las tuplas que han sido eliminadas
+    public function showAllEliminated()
+    {
+        $rol = Rol::all()->where('eliminatedAt', "!=", null);
+        return response()->json($rol);
+    }
 
     public function edit($id)
     {

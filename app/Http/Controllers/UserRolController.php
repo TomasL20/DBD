@@ -32,6 +32,14 @@ class UserRolController extends Controller
             return response()->json($userrol);
         }
     }
+    //Función que muestra todos los datos que han sido eliminados
+    //Entrada: ninguna
+    //Salida: una respuesta en formato json de todas las tuplas que han sido eliminadas
+    public function showAllEliminated()
+    {
+        $userrol = UserRol::all()->where('eliminatedAt', "!=", null);
+        return response()->json($userrol);
+    }
 
     public function edit($id)
     {

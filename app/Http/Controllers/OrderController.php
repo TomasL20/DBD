@@ -45,12 +45,19 @@ class OrderController extends Controller
         return "No se ha encontrado pedido con esa ID.";
     }
 
+    //Función que muestra todos los datos que han sido eliminados
+    //Entrada: ninguna
+    //Salida: una respuesta en formato json de todas las tuplas que han sido eliminadas
+    public function showAllEliminated()
+    {
+        $order = Order::all()->where('eliminatedAt', "!=", null);
+        return response()->json($order);
+    }
+
     public function edit($id)
     {
         //
     }
-
-
 
     //Funcion que cambia una tupla, la modifica con respecto al id y request entregado
     public function update(Request $request, $id)

@@ -50,7 +50,14 @@ class AdController extends Controller
         return "No existe anuncio con esa ID.";
         
     }
-
+    //Función que muestra todos los datos que han sido eliminados
+    //Entrada: ninguna
+    //Salida: una respuesta en formato json de todas las tuplas que han sido eliminadas
+    public function showAllEliminated()
+    {
+        $ad = Ad::all()->where('eliminatedAt', "!=", null);
+        return response()->json($ad);
+    }
 
     public function edit($id)
     {

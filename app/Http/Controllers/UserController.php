@@ -50,6 +50,15 @@ class UserController extends Controller
         return "El usuario con esa ID no existe.";
     }
 
+    //Función que muestra todos los datos que han sido eliminados
+    //Entrada: ninguna
+    //Salida: una respuesta en formato json de todas las tuplas que han sido eliminadas
+    public function showAllEliminated()
+    {
+        $user = User::all()->where('eliminatedAt', "!=", null);
+        return response()->json($user);
+    }
+
     public function edit($id)
     {
         //

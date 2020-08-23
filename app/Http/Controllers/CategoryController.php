@@ -48,6 +48,14 @@ class CategoryController extends Controller
         return "No existe categoría con ese ID.";
 
     }
+    //Función que muestra todos los datos que han sido eliminados
+    //Entrada: ninguna
+    //Salida: una respuesta en formato json de todas las tuplas que han sido eliminadas
+    public function showAllEliminated()
+    {
+        $category = Category::all()->where('eliminatedAt', "!=", null);
+        return response()->json($category);
+    }
 
     public function edit($id)
     {

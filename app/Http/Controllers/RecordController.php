@@ -46,6 +46,15 @@ class RecordController extends Controller
         }
     }
 
+    //Función que muestra todos los datos que han sido eliminados
+    //Entrada: ninguna
+    //Salida: una respuesta en formato json de todas las tuplas que han sido eliminadas
+    public function showAllEliminated()
+    {
+        $record = Record::all()->where('eliminatedAt', "!=", null);
+        return response()->json($record);
+    }
+
     public function edit($id)
     {
         //
