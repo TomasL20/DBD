@@ -12,6 +12,8 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //Muestra todo el contenido de la tabla en formato json
     public function index()
     {
         $category = Category::all();
@@ -34,6 +36,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Crea una nueva columna(tupla) con el id creado, especificando los campos debido al $request pasado como parametro
     public function store(Request $request)
     {
         $newCategory = new Category();
@@ -53,6 +56,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado
     public function show($id)
     {
         $category = Category::find($id);
@@ -77,6 +81,8 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //Funcion que cambia una tupla, la modifica con respecto al id y request entregado
     public function update(Request $request, $id)
     {
         $category = Category::findOrFail($id);
@@ -87,6 +93,7 @@ class CategoryController extends Controller
     
         return response()->json($category);
     }
+    //retorna la salida modificada en formato Json 
 
     /**
      * Remove the specified resource from storage.
@@ -94,6 +101,8 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //Elimina la tupla dependiendo del identificador entregado
     public function destroy($id)
     {
         $category = Category::find($id);
