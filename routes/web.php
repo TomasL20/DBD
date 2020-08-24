@@ -25,7 +25,7 @@ Route::post('/ad/create','AdController@store');
 Route::put('/ad/update/{id}','AdController@update');
 Route::delete('/ad/sdelete/{id}','AdController@delete');
 Route::put('/ad/restore/{id}','AdController@restore');
-Route::get('/ad/showAllEliminated','AdController@showalleliminated');
+Route::get('/ad/showalleliminated','AdController@showAllEliminated');
 
 //Rutas de Category
 Route::get('/category/all','CategoryController@index');
@@ -35,7 +35,7 @@ Route::post('/category/create','CategoryController@store');
 Route::put('/category/update/{id}','CategoryController@update');
 Route::delete('/category/sdelete/{id}','CategoryController@delete');
 Route::put('/category/restore/{id}','CategoryController@restore');
-Route::get('/category/showAllEliminated','CategoryController@showalleliminated');
+Route::get('/category/showalleliminated','CategoryController@showAllEliminated');
 
 //Rutas de Order
 Route::get('/order/all','OrderController@index');
@@ -45,7 +45,7 @@ Route::post('/order/create','OrderController@store');
 Route::put('/order/update/{id}','OrderController@update');
 Route::delete('/order/sdelete/{id}','OrderController@delete');
 Route::put('/order/restore/{id}','OrderController@restore');
-Route::get('/category/showAllEliminated','CategoryController@showalleliminated');
+Route::get('/category/showalleliminated','CategoryController@showAllEliminated');
 
 //Rutas de Payment
 Route::get('/payment/all','PaymentController@index');
@@ -55,7 +55,7 @@ Route::post('/payment/create','PaymentController@store');
 Route::put('/payment/update/{id}','PaymentController@update');
 Route::delete('/payment/sdelete/{id}','PaymentController@delete');
 Route::put('/payment/restore/{id}','PaymentController@restore');
-Route::get('/payment/showAllEliminated','PaymentController@showalleliminated');
+Route::get('/payment/showalleliminated','PaymentController@showAllEliminated');
 
 //Rutas de Permission
 Route::get('/permission/all','PermissionController@index');
@@ -65,7 +65,7 @@ Route::post('/permission/create','PermissionController@store');
 Route::put('/permission/update/{id}','PermissionController@update');
 Route::delete('/permission/sdelete/{id}','PermissionController@delete');
 Route::put('/permission/restore/{id}','PermissionController@restore');
-Route::get('/permission/showAllEliminated','PermissionController@showalleliminated');
+Route::get('/permission/showalleliminated','PermissionController@showAllEliminated');
 
 //Rutas de Product
 Route::get('/product/all','ProductController@index');
@@ -75,7 +75,7 @@ Route::post('/product/create','ProductController@store');
 Route::put('/product/update/{id}','ProductController@update');
 Route::delete('/product/sdelete/{id}','ProductController@delete');
 Route::put('/product/restore/{id}','ProductController@restore');
-Route::get('/product/showAllEliminated','ProductController@showalleliminated');
+Route::get('/product/showalleliminated','ProductController@showAllEliminated');
 
 //Rutas de Rating
 Route::get('/rating/all','RatingController@index');
@@ -85,7 +85,7 @@ Route::post('/rating/create','RatingController@store');
 Route::put('/rating/update/{id}','RatingController@update');
 Route::delete('/rating/sdelete/{id}','RatingController@delete');
 Route::put('/rating/restore/{id}','RatingController@restore');
-Route::get('/rating/showAllEliminated','RatingController@showalleliminated');
+Route::get('/rating/showalleliminated','RatingController@showAllEliminated');
 
 //Rutas de Record
 Route::get('/record/all','RecordController@index');
@@ -95,7 +95,7 @@ Route::post('/record/create','RecordController@store');
 Route::put('/record/update/{id}','RecordController@update');
 Route::delete('/record/sdelete/{id}','RecordController@delete');
 Route::put('/record/restore/{id}','RecordController@restore');
-Route::get('/record/showAllEliminated','RecordController@showalleliminated');
+Route::get('/record/showalleliminated','RecordController@showAllEliminated');
 
 //Rutas de Rol
 Route::get('/rol/all','RolController@index');
@@ -105,7 +105,7 @@ Route::post('/rol/create','RolController@store');
 Route::put('/rol/update/{id}','RolController@update');
 Route::delete('/rol/sdelete/{id}','RolController@delete');
 Route::put('/rol/restore/{id}','RolController@restore');
-Route::get('/rol/showAllEliminated','RolController@showallelminated');
+Route::get('/rol/showalleliminated','RolController@showAllElminated');
 
 //Rutas de RolPermission
 Route::get('/rolpermission/all','RolPermissionController@index');
@@ -115,7 +115,7 @@ Route::post('/rolpermission/create','RolPermissionController@store');
 Route::put('/rolpermission/update/{id}','RolPermissionController@update');
 Route::delete('/rolpermission/sdelete/{id}','RolPermissionController@delete');
 Route::put('/rolpermission/restore/{id}','RolPermissionController@restore');
-Route::get('/rolpermission/showAllEliminated','RolPermissionController@showalleliminated');
+Route::get('/rolpermission/showalleliminated','RolPermissionController@showAllEliminated');
 
 //Rutas de User
 Route::get('/user/all','UserController@index');
@@ -125,7 +125,7 @@ Route::post('/user/create','UserController@store');
 Route::put('/user/update/{id}','UserController@update');
 Route::delete('/user/sdelete/{id}','UserController@delete');
 Route::put('/user/restore/{id}','UserController@restore');
-Route::get('/user/showAllEliminated','UserController@showalleliminated');
+Route::get('/user/showalleliminated','UserController@showAllEliminated');
 
 //Rutas de UserRol
 Route::get('/userrol/all','UserRolController@index');
@@ -135,4 +135,4 @@ Route::post('/userrol/create','UserRolController@store');
 Route::put('/userrol/update/{id}','UserRolController@update');
 Route::delete('/userrol/sdelete/{id}','UserRolController@delete');
 Route::put('/userrol/restore/{id}','UserRolController@restore');
-Route::get('/userrol/showAllEliminated','UserRolController@showalleliminated');
+Route::get('/userrol/showalleliminated','UserRolController@showAllEliminated');
