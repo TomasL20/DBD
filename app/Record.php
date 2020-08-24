@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Record extends Model
 {
     protected $fillable = [
-        'action','createdAt','updatedAt',
+        'action',
     ];
 }

@@ -26,8 +26,6 @@ class RecordController extends Controller
     {
         $newRecord = new Record();
         $newRecord->action = $request->action;
-        $newRecord->createdAt = $request->createdAt;
-        $newRecord->modifyIn = $request->modifyIn;
         $newRecord->save();
         return response()->json([
             "message"=> "Nuevo registro creado.",

@@ -15,10 +15,8 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id('id'); //Identificador de la tabla "records"
-            $table->string('action'); //Corresponde al ghistorial de la base de datos, lo que se ha realizado
-            $table->timestamp('createdAt'); //Fecha de cracion de la accion o el historial
-            $table->timestamp('updatedAt'); //Fecha de actualizacion del historial
-            $table->timestamp('eliminatedAt')->nullable();
+            $table->integer('action'); //Corresponde al historial de la base de datos, lo que se ha realizado
+            $table->timestamp('eliminatedat')->nullable();
             $table->timestamps();
         });
     }

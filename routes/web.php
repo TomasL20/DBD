@@ -110,9 +110,9 @@ Route::get('/rol/showalleliminated','RolController@showAllElminated');
 //Rutas de RolPermission
 Route::get('/rolpermission/all','RolPermissionController@index');
 Route::get('/rolpermission/{id}','RolPermissionController@show');
-Route::delete('/rolpermission/delete/{id}','RolPermissionController@destroy');
+//Route::delete('/rolpermission/delete/{id}','RolPermissionController@destroy');
 Route::post('/rolpermission/create','RolPermissionController@store');
-Route::put('/rolpermission/update/{id}','RolPermissionController@update');
+//Route::put('/rolpermission/update/{id}','RolPermissionController@update');
 Route::delete('/rolpermission/sdelete/{id}','RolPermissionController@delete');
 Route::put('/rolpermission/restore/{id}','RolPermissionController@restore');
 Route::get('/rolpermission/showalleliminated','RolPermissionController@showAllEliminated');
@@ -130,9 +130,9 @@ Route::get('/user/showalleliminated','UserController@showAllEliminated');
 //Rutas de UserRol
 Route::get('/userrol/all','UserRolController@index');
 Route::get('/userrol/{id}','UserRolController@show');
-Route::delete('/userrol/delete/{id}','UserRolController@destroy');
+//Route::delete('/userrol/delete/{id}','UserRolController@destroy');
 Route::post('/userrol/create','UserRolController@store');
-Route::put('/userrol/update/{id}','UserRolController@update');
+//Route::put('/userrol/update/{id}','UserRolController@update');
 Route::delete('/userrol/sdelete/{id}','UserRolController@delete');
 Route::put('/userrol/restore/{id}','UserRolController@restore');
 Route::get('/userrol/showalleliminated','UserRolController@showAllEliminated');
