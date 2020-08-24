@@ -60,8 +60,44 @@ class RolPermissionController extends Controller
         //
     }
 
+    //Elimina la tupla dependiendo del identificador entregado
     public function destroy($id)
     {
-        //
+        $rolpermission = RolPermission::find($id);
+        if($rolpermission != NULL ){
+            $rolpermission->delete();
+            return response()->json([
+                "message"=> "Se elimina el rol-permiso.",
+                "idRolPermission" => $rolpermission->id
+            ]);   
+        }
+        return "No existe rol-permiso con esa ID";
+    }
+    //soft
+    public function delete($id){
+        $rolpermission = RolPermission::find($id);
+        if($rolpermission != NULL && $rolpermission->eliminatedAt == NULL){
+            
+            $rolpermission->eliminatedAt = now();
+            $rolpermission->save();
+            return response()->json([
+                "message"=> "Se elimina el rol-permiso. (soft)",
+                "idRolPermission" => $rolpermission->id
+            ]);   
+        }
+        return "No existe rol-permiso con esa ID";
+    }
+    //restore
+    public function restore($id){
+        $rolpermission = RolPermission::find($id);
+        if($rolpermission != NULL && $rolpermission->eliminatedAt != NULL){
+            $rolpermission->eliminatedAt = NULL;
+            $rolpermission->save();
+            return response()->json([
+                "message"=> "Se ha restaurado el rol-permiso.",
+                "idRolPermission" => $rolpermission->id
+            ]);
+        }
+        return "El rol-permiso no existe o no está eliminado.";
     }
 }

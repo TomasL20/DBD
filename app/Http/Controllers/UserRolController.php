@@ -57,9 +57,44 @@ class UserRolController extends Controller
     {
         //
     }
-
-    public function destroy($id)
-    {
-        //
-    }
+   //Elimina la tupla dependiendo del identificador entregado
+   public function destroy($id)
+   {
+       $userrol = UserRol::find($id);
+       if($userrol != NULL ){
+           $userrol->delete();
+           return response()->json([
+               "message"=> "Se elimina el user-rol.",
+               "idUserRol" => $userrol->id
+           ]);   
+       }
+       return "No existe user-rol con esa ID";
+   }
+   //soft
+   public function delete($id){
+       $userrol = UserRol::find($id);
+       if($userrol != NULL && $userrol->eliminatedAt == NULL){
+           
+           $userrol->eliminatedAt = now();
+           $userrol->save();
+           return response()->json([
+               "message"=> "Se elimina el user-rol. (soft)",
+               "idUserRol" => $userrol->id
+           ]);   
+       }
+       return "No existe user-rol con esa ID";
+   }
+   //restore
+   public function restore($id){
+       $userrol = userrol::find($id);
+       if($userrol != NULL && $userrol->eliminatedAt != NULL){
+           $userrol->eliminatedAt = NULL;
+           $userrol->save();
+           return response()->json([
+               "message"=> "Se ha restaurado el user-rol.",
+               "idUserRol" => $userrol->id
+           ]);
+       }
+       return "El user-rol no existe o no está eliminado.";
+   }
 }
