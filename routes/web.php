@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/register', function () {
+    return view('register');
+});
+
 //Rutas de Ad
 Route::get('/ad/all','AdController@index');
 Route::get('/ad/showalleliminated','AdController@showAllEliminated');
