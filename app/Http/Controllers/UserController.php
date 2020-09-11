@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Egulias\EmailValidator\Validation\RFCValidation;
 
 class UserController extends Controller
 {
@@ -26,17 +27,18 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $newUser= new User();
-        $newUser->userName = $request->userName;
-        $newUser->realName = $request->realName;
-        $newUser->email = $request->email;
-        $newUser->password = $request->password;
+        $validatedData =  $request->validate([
+            'usernameInput' => 'required|min:4|max:26',
+            'nameInput' => 'required|min:6|max:100',
+            'emailInput' => 'email:rfc',
+            'passwordInput' => 'required|min:4|max:26',
+        ]);
+        $newUser->userName = $request->usernameInput;
+        $newUser->realName = $request->nameInput;
+        $newUser->email = $request->emailInput;
+        $newUser->password = $request->passwordInput;
         $newUser->save();
-        return response()->json([
-            
-            "message"=> "Nuevo usuario creado.",
-            "idUserCreated"=> $newUser->id
-            
-        ],201);
+        return view('login');
     }
 
 

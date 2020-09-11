@@ -14,12 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
-Route::get('/register', function () {
+Route::get('/register', function() {
     return view('register');
 });
+Route::post('/register/User', 'UserController@store')->name('register');
 
 //Rutas de Ad
 Route::get('/ad/all','AdController@index');
