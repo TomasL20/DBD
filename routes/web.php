@@ -22,6 +22,8 @@ Route::get('/register', function() {
 });
 Route::post('/register/User', 'UserController@store')->name('register');
 
+Route::post('/login','UserController@login')->name('login');
+
 //Rutas de Ad
 Route::get('/ad/all','AdController@index');
 Route::get('/ad/showalleliminated','AdController@showAllEliminated');

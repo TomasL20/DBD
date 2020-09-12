@@ -136,4 +136,28 @@ class UserController extends Controller
         }
         return "El usuario no existe o no está eliminado.";
     }
+
+    public function login(Request $request)
+    {
+        $user = User::all();
+        $validatedData = $request->validate([
+           'emailInput'=>'email:rfc',
+           'passwordInput'=>'required',
+
+        ]);
+        $llave = 0;
+        foreach($user as $user){
+            if($user->email == $request->emailInput and $user->password == $request->passwordInput){
+                $llave = 1;
+            }
+        }
+        if($llave == 1){
+            return view('welcome');
+        }
+        else{
+            return view('register');
+
+        }
+    }
+
 }
