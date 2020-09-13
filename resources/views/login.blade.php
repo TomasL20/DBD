@@ -11,17 +11,17 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/vistaone.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://i.ibb.co/W3kkGF3/P-1.png"> 
-    <title>YoPresto | login</title>
+    <title>YoPresto | Login</title>
 </head>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Pacifico&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Pacifico&family=Raleway:wght@500&display=swap');
     .formulario {
         background-color: #353535;
         text-align: center;
         padding: 15px;
     }
     .normalText {
-        color: #d9d9d9;
+        color: #ff8e48;
     }
     .end {
         color: #d9d9d9;
@@ -31,10 +31,9 @@
     .input-contenedor {
         margin-top: 15px;
     }
-    .logo {
-        object-position: center top;
-        margin-top: 30px;
-        margin-bottom: 40px;
+    .pos-cosas{
+        padding-left: 20%;
+        padding-right: 20%;
     }
     .upper-name {
         color: #3C6E71;
@@ -44,7 +43,8 @@
     .inputs {
         margin-bottom: 30px;
         border-radius: 20px;
-        inline-size: 20%;
+        inline-size: 70%;
+        border-color: #7ddcd3;
     }
     .labels {
         color: #ffffff;
@@ -54,11 +54,12 @@
     .btn-secondary {
         margin-top: 15px;
         margin-bottom: 15px;
-        border: solid 1px;
+        margin-left: 25%;
+        border: solid 3px;
         padding: 8px;
-        border-color: #fff;
+        border-color: #7ddcd3;
         border-radius: 20px;
-        background-color: #3C6E71;
+        background-color: #2ec4b6;
     }
     .alert-danger {
         background-color: #3C6E71;
@@ -85,10 +86,24 @@
     }
     .d3{
         font-family: 'Nunito', sans-serif;
-        color: #FFFFFF;
+        color: #495057;
+    }
+    .d4{
+        font-family: 'Raleway', sans-serif;
+        font-size: 200%;
+        margin-top: 10%;
+        margin-left: 20%;
+        margin-right: 20%;
     }
     .loginBg{
-        background-color: #FFDFB4;
+        background-color: #FFEDD6;
+    }
+    .img{
+        position: relative;
+        margin-left: 70%;
+    }
+    .img-bici{
+        margin-top: 5%;
     }
     
 </style>
@@ -125,39 +140,42 @@
         <!--Alertas-->
         <div class="row">
             <div class="col-sm-6 loginBg">
-
+                <p class="d4">¡Encuentra los mejores arriendos sin importar dónde te encuentres!</p>
+                <img src="https://i.ibb.co/HqLCjHB/icono-aislado-bicicleta-mujer-clasica-124507-5517-1.png" class="img-bici"alt="Imagen de una bicicleta"></img>
             </div>
             <div class="col-6 ">
                 <div class="row">
                     <div class="logo">
-                        <img src="https://i.ibb.co/XZKCJ7R/No-compro-Yo-vendo-3-1.png" width="300px" height="300px" class="mx-auto d-block" alt="Logotipo no compro, yo presto" >
+                        <img src="https://i.ibb.co/0VZv3Jc/No-vendo-yo-presto.png" width="250px" height="250px" class="img" alt="Logotipo no compro, yo presto" >
+                    </div>
+                </div>
+                <div class="row pos-cosas">
+                    <h1 class="d2">Iniciar Sesión</h1>
+                    <div class="login d3">
+                        <div>
+                            <label name="mailLabel" class="labels d3">Ingresa tu correo electrónico:</label>
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill normalText" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                            </svg>
+                            <input name="emailInput" id="emailInput" type="text" placeholder="Correo Electrónico" class="inputs @error('emailInput') invalid @enderror">
+                        </div>
+                        <div>
+                            <label name="mailLabel" class="labels d3">Ingresa tu contraseña:</label>
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill normalText" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z" />
+                                <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                            </svg>
+                            <input name="passwordInput" id="passwordInput" type="password" placeholder="Contraseña" class="inputs @error('passwordInput') invalid @enderror">
+                        </div>
+                        <div>
+                            <button name="registerbtn" type="submit" class="btn btn-secondary">Iniciar Sesión</button>
+                        </div>
+                        <p class="d3">Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+                        <p class="end d3">¿No tienes cuenta?</p>
+                        <a class="link d3" href="{{url('register')}}">Crear Cuenta</a>
                     </div>
                 </div>
                 
-                <h1 class="d2">Iniciar Sesión</h1>
-                <div class="login">
-                    <div>
-                        <label name="mailLabel" class="labels">Ingresa tu correo electrónico:</label>
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill normalText" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
-                        </svg>
-                        <input name="emailInput" id="emailInput" type="text" placeholder="Correo Electrónico" class="inputs @error('emailInput') invalid @enderror">
-                    </div>
-                    <div>
-                        <label name="mailLabel" class="labels">Ingresa tu contraseña:</label>
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill normalText" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z" />
-                            <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
-                        </svg>
-                        <input name="passwordInput" id="passwordInput" type="password" placeholder="Contraseña" class="inputs @error('passwordInput') invalid @enderror">
-                    </div>
-                    <div>
-                        <button name="registerbtn" type="submit" class="btn btn-secondary">Iniciar Sesión</button>
-                    </div>
-                    <p class="normalText">Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-                    <p class="end">¿No tienes cuenta?</p>
-                    <a class="link" href="{{url('register')}}">Crear Cuenta</a>
-                </div>
             </div>
         </div>
         <!-- Optional JavaScript -->
