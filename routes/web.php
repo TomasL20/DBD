@@ -24,7 +24,7 @@ Route::get('/register', function() {
 });
 
 Route::post('/register/user', 'UserController@store')->name('register');
-
+Route::get('/home','GeneralController@homeIndex')->name('home');
 
 
 //Rutas de Ad

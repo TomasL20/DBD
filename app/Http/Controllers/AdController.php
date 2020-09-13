@@ -15,7 +15,6 @@ class AdController extends Controller
         return response()->json($ad);
     }
 
-
     public function create()
     {
         //
