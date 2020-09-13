@@ -13,18 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/','CategoryController@index')->name('home');
+Route::get('/login', function () {
     return view('login');
 });
+Route::post('/login/user','UserController@login')->name('login');
 
 Route::get('/register', function() {
     return view('register');
 });
-Route::get('/home','CategoryController@index')->name('home');
 
-Route::post('/register/User', 'UserController@store')->name('register');
+Route::post('/register/user', 'UserController@store')->name('register');
 
-Route::post('/login','UserController@login')->name('login');
+
 
 //Rutas de Ad
 Route::get('/ad/all','AdController@index');

@@ -140,7 +140,7 @@
 
             <p class = "normalText">Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
             <p class = "end">¿Ya tienes cuenta?</p>
-            <a class="link" href="login.blade.php">Iniciar Sesión</a>
+            <a class="link" href="{{url('login')}}">Iniciar Sesión</a>
           
           </div>
           

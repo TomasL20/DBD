@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Category;
+use App\Product;
+use App\Ad;
 use Egulias\EmailValidator\Validation\RFCValidation;
+
 
 class UserController extends Controller
 {
@@ -140,23 +144,34 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $user = User::all();
+        $category = Category::all();
         $validatedData = $request->validate([
            'emailInput'=>'email:rfc',
            'passwordInput'=>'required',
 
         ]);
-        $llave = 0;
+        
+        $llave = 3;
         foreach($user as $user){
-            if($user->email == $request->emailInput and $user->password == $request->passwordInput){
-                $llave = 1;
-            }
+            if($user->email == $request->emailInput){
+                $llave = 1; //si  el email se verifica quiere decir que pasa y esta en lo correcto.
+                
+                if($user->password == $request->passwordInput){
+                    $llave = 2; //quiere decir que la password es correcta
+                }
+            }  
         }
-        if($llave == 1){
-            return view('welcome');
+        if($llave == 2){
+            
+            return view('home',compact('user','category','llave'));
+        }
+        else if($llave==1){
+            
+            return view('login',compact('user','llave'));
         }
         else{
-            return view('register');
-
+            
+            return view('login',compact('user','llave'));
         }
     }
 

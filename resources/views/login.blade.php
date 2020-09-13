@@ -84,10 +84,12 @@
   </style>
   
   <body class = "formulario">
-  <form action="{{route('login')}}" method = "POST">
+
+  <form action="{{route('login')}}"  method = "POST">
   
     @if($errors->any())
-        <div class="alert alert-danger" role="alert">
+
+      <div class="alert alert-danger" role="alert">
           <bold class ="grande"> ¡Ha ocurrido algo!</bold>
           <ul>
             @error('emailInput')
@@ -98,6 +100,21 @@
             @enderror
           </ul>
       </div>
+    @endif
+    @if($llave ?? '')  
+      
+        <div class="alert alert-danger" role="alert">
+            <bold class ="grande"> ¡Ha ocurrido algo!</bold>
+            <ul>
+            @if($llave==3)
+            <p class="normalText">El email ingresado no existe.</p>
+            @endif
+            @if($llave==1)
+            <p class="normalText">La contraseña es incorrecta.</p>
+            @endif
+            </ul>
+        </div>
+      
     @endif
 
     <div class = "contenedor">
@@ -132,7 +149,7 @@
 
           <p class = "normalText">Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
           <p class = "end">¿No tienes cuenta?</p>
-          <a class="link" href="register">Crear Cuenta</a>
+          <a class="link" href="{{url('register')}}">Crear Cuenta</a>
         
         </div>
         
