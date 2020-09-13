@@ -43,11 +43,11 @@ class DatabaseSeeder extends Seeder
            ]);
         //$this->call(CategoryTableSeeder::class);
         RolPermission::insert([
-            [ 'id' => 1, 'idRol' => 2, 'idPer' => 1,'created_at' => now()],
-            [ 'id' => 2, 'idRol' => 2, 'idPer' => 2,'created_at' => now()],
-            [ 'id' => 3, 'idRol' => 2, 'idPer' => 3,'created_at' => now()],
-            [ 'id' => 4, 'idRol' => 2, 'idPer' => 4,'created_at' => now()],
-            [ 'id' => 5, 'idRol' => 3, 'idPer' => 4,'created_at' => now()],
+            [ 'id' => 6, 'idrol' => 2, 'idper' => 1,'created_at' => now()],
+            [ 'id' => 7, 'idrol' => 2, 'idper' => 2,'created_at' => now()],
+            [ 'id' => 8, 'idrol' => 2, 'idper' => 3,'created_at' => now()],
+            [ 'id' => 9, 'idrol' => 2, 'idper' => 4,'created_at' => now()],
+            [ 'id' => 10, 'idrol' => 3, 'idper' => 4,'created_at' => now()],
            ]);
         //$this->call(RolPermissionTableSeeder::class);
         $this->call(UserRolTableSeeder::class);

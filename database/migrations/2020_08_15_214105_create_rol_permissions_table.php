@@ -16,11 +16,11 @@ class CreateRolPermissionsTable extends Migration
         Schema::create('rol_permissions', function (Blueprint $table) {
             $table->id('id'); //Identificador de la tabla
             //Se crean las llavs foraneas
-            $table->unsignedBigInteger('idRol');//Identificador de la tabla Rol
-            $table->unsignedBigInteger('idPer');//Identificador de la tabla permisos
+            $table->unsignedBigInteger('idrol');//Identificador de la tabla Rol
+            $table->unsignedBigInteger('idper');//Identificador de la tabla permisos
             //Se referencian las llaves foraneas
-            $table->foreign('idRol')->references('id')->on('rols'); //corresponde a la llave foranea de la tabla rol
-            $table->foreign('idPer')->references('id')->on('permissions'); //corresponde a la llave forane a de la tabla permisos
+            $table->foreign('idrol')->references('id')->on('rols'); //corresponde a la llave foranea de la tabla rol
+            $table->foreign('idper')->references('id')->on('permissions'); //corresponde a la llave forane a de la tabla permisos
             $table->timestamp('eliminatedAt')->nullable();
             $table->timestamps();
         });
