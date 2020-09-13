@@ -25,17 +25,29 @@ class UserController extends Controller
     {
         //
     }
+    //Override de la función para personalizar los mensajes de error.
 
 
     //Crea una nueva columna(tupla) con el id creado, especificando los campos debido al $request pasado como parametro
     public function store(Request $request)
     {
+
         $newUser= new User();
         $validatedData =  $request->validate([
-            'usernameInput' => 'required|min:4|max:26',
+            'usernameInput' => 'required|min:4|max:26|unique:users,userName',
             'nameInput' => 'required|min:6|max:100',
-            'emailInput' => 'email:rfc',
+            'emailInput' => 'email:rfc|unique:users,email',
             'passwordInput' => 'required|min:4|max:26',
+        ],
+        [
+            'usernameInput.required' => 'No se ha puesto nombre de usuario.',
+            'usernameInput.min' => 'El nombre de usuario debe ser de mínimo 4 carácteres y máximo 26.',
+            'usernameInput.max' => 'El nombre de usuario debe ser de mínimo 4 carácteres y máximo 26.',
+            'nameInput.required' => 'No se ha puesto nombre.',
+            'nameInput.min' => 'El nombre debe ser de mínimo 6 carácteres y máximo 100.',
+            'nameInput.max' => 'El nombre debe ser de mínimo 6 carácteres y máximo 100.',
+            'emailInput.email' => 'El email no es válido.',
+            'emailInput.unique' => 'El email ya existe.',
         ]);
         $newUser->userName = $request->usernameInput;
         $newUser->realName = $request->nameInput;
@@ -44,6 +56,7 @@ class UserController extends Controller
         $newUser->save();
         return view('login');
     }
+    
 
 
     //Pregunta un parametro en especifuco, muestra  dependiendo del parametro indexeado

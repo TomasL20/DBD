@@ -16,7 +16,7 @@ class CreateTriggerRecordUpdate extends Migration
         DB::statement('
         CREATE OR REPLACE FUNCTION addRecordAds() RETURNS trigger AS $paAddRecord$
         BEGIN
-            INSERT INTO records (action) VALUES (1);
+            INSERT INTO records (action,created_at) VALUES (1,now());
             RETURN New;
         END;
         $paAddRecord$
@@ -50,7 +50,7 @@ class CreateTriggerRecordUpdate extends Migration
         DB::statement('
         CREATE OR REPLACE FUNCTION addRecordCategories() RETURNS trigger AS $paAddRecord$
         BEGIN
-            INSERT INTO records (action) VALUES (2);
+            INSERT INTO records (action,created_at) VALUES (2,now());
             RETURN New;
         END;
         $paAddRecord$
@@ -85,7 +85,7 @@ class CreateTriggerRecordUpdate extends Migration
         DB::statement('
         CREATE OR REPLACE FUNCTION addRecordRols() RETURNS trigger AS $paAddRecord$
         BEGIN
-            INSERT INTO records (action) VALUES (3);
+            INSERT INTO records (action,created_at) VALUES (3,now());
             RETURN New;
         END;
         $paAddRecord$

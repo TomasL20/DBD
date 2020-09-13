@@ -69,26 +69,18 @@
         font-size:400%;
       }
   </style>
-  @if($errors->any())
+
+  <body class = "formulario">
+    @if($errors->any())
       <div class="alert alert-danger" role="alert">
         <bold class ="grande"> ¡Ha ocurrido algo!</bold>
         <ul>
-          @error('emailInput')
-            <p class="normalText">El email debe ser válido.</p>
-          @enderror
-          @error('nameInput')
-          <p class="normalText">El nombre debe ser de entre 10 a 100 carácteres.</p>
-          @enderror
-          @error('usernameInput')
-          <p class="normalText">El nombre de usuario debe ser de entre 4 a 26 carácteres.</p>
-          @enderror
-          @error('passwordInput')
-          <p class="normalText">La contraseña debe ser de entre 4 a 26 carácteres.</p>
-          @enderror
+          @foreach($errors->all() as $err)
+            <p class="normalText">{{$err}}</p>
+          @endforeach
         </ul>
-    </div>
-  @endif
-  <body class = "formulario">
+      </div>
+    @endif
     <form action="{{route('register')}}" method = "POST">
     
       <div class = "contenedor">

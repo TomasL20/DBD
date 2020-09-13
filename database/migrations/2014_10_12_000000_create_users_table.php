@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id('id'); // Id del usuario que posee dentro de la tabla
-            $table->string('userName'); //nombre de usuario dentro de la página
+            $table->string('userName')->unique(); //nombre de usuario dentro de la página
             $table->string('realName'); //Nombre real que posee el usuario
             $table->string('email')->unique(); //E-mail del usuario, el cual es un dato constraint, se maneja como unico
             $table->timestamp('email_verified_at')->nullable();
