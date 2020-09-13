@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all()->where('eliminatedAt',null);
-        return response()->json($category);
+        return view('home',compact('category'));
     }
 
 

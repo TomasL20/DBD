@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::all()->where('eliminatedAt',null);
-        return response()->json($product);
+        return view('home', compact('product'));
     }
 
     public function create()

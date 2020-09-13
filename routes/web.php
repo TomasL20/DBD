@@ -20,6 +20,8 @@ Route::get('/', function () {
 Route::get('/register', function() {
     return view('register');
 });
+Route::get('/home','CategoryController@index')->name('home');
+
 Route::post('/register/User', 'UserController@store')->name('register');
 
 Route::post('/login','UserController@login')->name('login');
