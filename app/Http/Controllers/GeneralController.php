@@ -69,15 +69,6 @@ class GeneralController extends Controller
         $rating = Rating::all()->where('eliminatedAt',null);
         return view('home',compact('ad','category','order','product','rating','user'));
     }
-    public function homeGet(Request $request){
-        $user = User::find($request->userInput);
-        $ad = Ad::all()->where('eliminatedAt',null);
-        $category = Category::all()->where('eliminatedAt',null);
-        $order = Order::all()->where('eliminatedAt',null);
-        $product = Product::all()->where('eliminatedAt',null);
-        $rating = Rating::all()->where('eliminatedAt',null);
-        return redirect('account/' . $user->id);
-    }
 
     public function accountIndex()
     {

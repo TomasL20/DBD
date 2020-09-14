@@ -33,6 +33,7 @@ class UserController extends Controller
     {
 
         $user= new User();
+        $category = Category::all();
         $validatedData =  $request->validate([
             'usernameInput' => 'required|min:4|max:26|unique:users,userName',
             'nameInput' => 'required|min:6|max:100',
@@ -54,7 +55,7 @@ class UserController extends Controller
         $user->email = $request->emailInput;
         $user->password = $request->passwordInput;
         $user->save();
-        return view('home',compact('$user',));
+        return view('home',compact('user','category'));
     }
     
 

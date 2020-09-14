@@ -27,7 +27,6 @@ Route::post('/register/user', 'UserController@store')->name('register');
 
 Route::get('/home','GeneralController@homeIndex');
 Route::get('/home/{id}','GeneralController@homeIndexId');
-Route::post('/home/user','GeneralController@homeGet')->name('home');
 
 Route::get('/account','GeneralController@accountIndex');
 Route::get('/account/{id}','GeneralController@accountIndexId');
