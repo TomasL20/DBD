@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//use App\Http\Request;
+//use App\Http\Requests;
+
+use Illuminate\Support\Facades\Input;
+
 use App\Ad;
 use App\Category;
 use App\Order;
@@ -47,13 +52,31 @@ class GeneralController extends Controller
         return view('home',compact('ad','category','order','payment','permission','product','rating','record','rol','rolpermission','user','userrol'));
     }
     public function homeIndex()
-    {
+    {   
         $ad = Ad::all()->where('eliminatedAt',null);
         $category = Category::all()->where('eliminatedAt',null);
         $order = Order::all()->where('eliminatedAt',null);
         $product = Product::all()->where('eliminatedAt',null);
         $rating = Rating::all()->where('eliminatedAt',null);
         return view('home',compact('ad','category','order','product','rating'));
+    }
+    public function homeIndexId(int $id)
+    {   $user = User::find($id);
+        $ad = Ad::all()->where('eliminatedAt',null);
+        $category = Category::all()->where('eliminatedAt',null);
+        $order = Order::all()->where('eliminatedAt',null);
+        $product = Product::all()->where('eliminatedAt',null);
+        $rating = Rating::all()->where('eliminatedAt',null);
+        return view('home',compact('ad','category','order','product','rating','user'));
+    }
+    public function homeGet(Request $request){
+        $user = User::find($request->userInput);
+        $ad = Ad::all()->where('eliminatedAt',null);
+        $category = Category::all()->where('eliminatedAt',null);
+        $order = Order::all()->where('eliminatedAt',null);
+        $product = Product::all()->where('eliminatedAt',null);
+        $rating = Rating::all()->where('eliminatedAt',null);
+        return redirect('account/' . $user->id);
     }
 
     public function accountIndex()
@@ -65,6 +88,18 @@ class GeneralController extends Controller
         $rating = Rating::all()->where('eliminatedAt',null);
         return view('account',compact('ad','category','order','product','rating'));
     }
+
+    
+    public function accountIndexId(int $id)
+    {   $user = User::find($id);
+        $ad = Ad::all()->where('eliminatedAt',null);
+        $category = Category::all()->where('eliminatedAt',null);
+        $order = Order::all()->where('eliminatedAt',null);
+        $product = Product::all()->where('eliminatedAt',null);
+        $rating = Rating::all()->where('eliminatedAt',null);
+        return view('account',compact('ad','category','order','product','rating','user'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

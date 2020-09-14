@@ -32,7 +32,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-        $newUser= new User();
+        $user= new User();
         $validatedData =  $request->validate([
             'usernameInput' => 'required|min:4|max:26|unique:users,userName',
             'nameInput' => 'required|min:6|max:100',
@@ -49,12 +49,12 @@ class UserController extends Controller
             'emailInput.email' => 'El email no es válido.',
             'emailInput.unique' => 'El email ya existe.',
         ]);
-        $newUser->userName = $request->usernameInput;
-        $newUser->realName = $request->nameInput;
-        $newUser->email = $request->emailInput;
-        $newUser->password = $request->passwordInput;
-        $newUser->save();
-        return view('login');
+        $user->userName = $request->usernameInput;
+        $user->realName = $request->nameInput;
+        $user->email = $request->emailInput;
+        $user->password = $request->passwordInput;
+        $user->save();
+        return view('home',compact('$user',));
     }
     
 
@@ -156,7 +156,7 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        $user = User::all();
+        $users = User::all();
         $category = Category::all();
         $validatedData = $request->validate([
            'emailInput'=>'email:rfc',
@@ -165,7 +165,7 @@ class UserController extends Controller
         ]);
         
         $llave = 3;
-        foreach($user as $user){
+        foreach($users as $user){
             if($user->email == $request->emailInput){
                 $llave = 1; //si  el email se verifica quiere decir que pasa y esta en lo correcto.
                 
@@ -175,8 +175,8 @@ class UserController extends Controller
             }  
         }
         if($llave == 2){
-            
-            return view('home',compact('user','category','llave'));
+            //return redirect('home')->with(compact('user','category','llave'));
+            return redirect('home/' . $user->id);
         }
         else if($llave==1){
             

@@ -105,7 +105,11 @@
             <div class="col-sm sidebar">
                 <nav class="mb-1 navbar navbar-expand-lg ">
                     <img src="https://i.ibb.co/W3kkGF3/P-1.png" width="40" height="40" alt="Logotipo no compro, yo presto" >
-                    <a class="navbar-brand d1 inline" href="#">No vendo, Yo Presto</a>
+                    @if($user ?? '')
+                    <a class="navbar-brand d1 inline" href="/home/<?= $user->id ?>">No vendo, Yo Presto</a>
+                    @else
+                    <a class="navbar-brand d1 inline" href="{{url('/home')}}">No vendo, Yo Presto</a>
+                    @endif
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
                         aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -113,7 +117,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link d2" href="#">Home
+                                <a class="nav-link d2" href="#">Crea tu anuncio
                                 <span class="sr-only">(current)</span>
                                 </a>
                             </li>
