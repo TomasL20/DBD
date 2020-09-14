@@ -56,6 +56,16 @@ class GeneralController extends Controller
         return view('home',compact('ad','category','order','product','rating'));
     }
 
+    public function accountIndex()
+    {
+        $ad = Ad::all()->where('eliminatedAt',null);
+        $category = Category::all()->where('eliminatedAt',null);
+        $order = Order::all()->where('eliminatedAt',null);
+        $product = Product::all()->where('eliminatedAt',null);
+        $rating = Rating::all()->where('eliminatedAt',null);
+        return view('account',compact('ad','category','order','product','rating'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
