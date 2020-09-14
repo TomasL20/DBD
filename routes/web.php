@@ -31,6 +31,9 @@ Route::get('/home/{id}','GeneralController@homeIndexId');
 Route::get('/account','GeneralController@accountIndex');
 Route::get('/account/{id}','GeneralController@accountIndexId');
 
+Route::get('/addad/{id}','GeneralController@addadIndex');
+
+Route::get('/ad/{id}', 'GeneralController@adIndex')->name('advertisement');
 
 Route::get('/account','GeneralController@accountIndex');
 
