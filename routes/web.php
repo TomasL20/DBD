@@ -34,7 +34,7 @@ Route::get('/account/{id}','GeneralController@accountIndexId');
 Route::get('/addad/{id}','GeneralController@addadIndex');
 Route::post('/addad/{id}/post','AdController@store')->name('addad');
 
-//Route::get('/ad/{id}', 'GeneralController@adIndex')->name('advertisement');
+Route::get('/advertisement/{id}', 'GeneralController@adIndex')->name('advertisement');
 
 Route::get('/account','GeneralController@accountIndex');
 

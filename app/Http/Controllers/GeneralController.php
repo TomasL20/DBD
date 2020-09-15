@@ -106,7 +106,7 @@ class GeneralController extends Controller
         $user = User::find($ad->idUser);
         $product = Product::find($ad->idProd);
         $rating = Rating::all()->where('eliminatedAt', null);
-        return view('advertisement', compact('ad','user','product','rating'));
+        return view('advertisementID', compact('ad','user','product','rating'));
     }
 
     public function addadIndex(int $id){
