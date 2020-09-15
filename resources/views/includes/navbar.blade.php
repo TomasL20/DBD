@@ -29,9 +29,6 @@
                     <li class="nav-item">
                         <a class="nav-link d2" href="#">Ver todos los anuncios</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link d2" href="#">Pricing</a>
-                    </li>
                 </ul>
                 @if($user ?? '')            
                     <ul class="navbar-nav nav-flex-icons">
@@ -41,8 +38,8 @@
                             <div class="dropdown-menu dropdown-menu-right dropdown-default"
                             aria-labelledby="navbarDropdownMenuLink-333">
                                 <a class="dropdown-item" href = "/account/<?= $user->id ?>" >{{$user->userName}}</a>
-                                <button class="dropdown-item" type = "submit" href="{{url('/')}}">Mis arriendos</button>
-                                <button class="dropdown-item" href = "{{url('/home')}}">Cerrar sesión</button>
+                                <a class="dropdown-item" type = "submit" href="{{url('/')}}">Mis arriendos</a>
+                                <a class="dropdown-item" href = "{{url('/home')}}">Cerrar sesión</a>
                             </div>
                         </li>
                     </ul>
