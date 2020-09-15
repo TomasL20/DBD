@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/vistaone.css') }}">
     <link rel="shortcut icon" href="https://i.ibb.co/W3kkGF3/P-1.png">
-    <title>Te presto el login</title>
+    <title>YoPresto | Registrarse</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Pacifico&family=Raleway:wght@500&display=swap');

@@ -82,7 +82,7 @@
         }
     </style>
 
-    <body>
+    <body class = "container-fluid">
 @include('includes.navbar')
         <!-- Sidebar -->
         <div class="row">

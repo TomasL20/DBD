@@ -33,7 +33,7 @@ class UserController extends Controller
     {
 
         $user= new User();
-        $category = Category::all();
+        $category = Category::all()->where('eliminatedAt',null);
         $validatedData =  $request->validate([
             'usernameInput' => 'required|min:4|max:26|unique:users,userName',
             'nameInput' => 'required|min:6|max:100',
@@ -161,8 +161,8 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        $users = User::all();
-        $category = Category::all();
+        $users = User::all()->where('eliminatedAt',null);
+        $category = Category::all()->where('eliminatedAt',null);
         $validatedData = $request->validate([
            'emailInput'=>'email:rfc',
            'passwordInput'=>'required',
@@ -175,13 +175,14 @@ class UserController extends Controller
                 $llave = 1; //si  el email se verifica quiere decir que pasa y esta en lo correcto.
                 
                 if($user->password == $request->passwordInput){
-                    $llave = 2; //quiere decir que la password es correcta
+                    $llave = 2;
+                    $u = $user; //quiere decir que la password es correcta
                 }
             }  
         }
         if($llave == 2){
             //return redirect('home')->with(compact('user','category','llave'));
-            return redirect('home/' . $user->id);
+            return redirect('home/' . $u->id);
         }
         else if($llave==1){
             
