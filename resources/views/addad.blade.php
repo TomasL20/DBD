@@ -141,116 +141,69 @@
 
 <body>
     <div class="container-fluid">
-        <!-- Navbar -->
-        <div class="row">
-            <div class="col-sm sidebar">
-                <!--Navbar -->
-                <nav class="mb-1 navbar navbar-expand-lg ">
-                    <img src="https://i.ibb.co/W3kkGF3/P-1.png" width="40" height="40"
-                        alt="Logotipo no vendo, yo presto">
-                    @if($user ?? '')
-                    <a class="navbar-brand d1 inline" href="/home/<?= $user->id ?>">No vendo, Yo Presto</a>
-                    @else
-                    <a class="navbar-brand d1 inline" href="{{url('/home')}}">No vendo, Yo Presto</a>
-                    @endif
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent-333" aria-controls="navbarSupportedContent-333"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link d2" href="#">Crea tu anuncio
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link d2" href="#">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link d2" href="#">Pricing</a>
-                            </li>
-                        </ul>
-                        @if($user ?? '')
-                        <ul class="navbar-nav nav-flex-icons">
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                        class='fas fa-user-alt'></i></a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-default"
-                                    aria-labelledby="navbarDropdownMenuLink-333">
-                                    <a class="dropdown-item" href="/account/<?= $user->id ?>">{{$user->userName}}</a>
-                                    <button class="dropdown-item" type="submit" href="{{url('/')}}">Mis
-                                        arriendos</button>
-                                    <button class="dropdown-item" href="{{url('/home')}}">Cerrar sesión</button>
-                                </div>
-                            </li>
-                        </ul>
-                        @else
-                        <ul class="navbar-nav nav-flex-icons">
-                            <li class="nav-item dropdown">
-                                <a class="navbar-brand d2 inline rgbtn" href="{{url('/register')}}">Registrarse</a>
-                                <a class="navbar-brand d2 inline rgbtn" href="{{url('/login')}}">Iniciar sesión</a>
-                            </li>
-                        </ul>
-                        @endif
+    @include('includes.navbar')
 
 
-                    </div>
-                </nav>
-                <!--/.Navbar -->
-            </div>
-        </div>
+
         <div class="row">
             <div class="col-6">
+
                 <p class='d5'>Rellena los datos de tu anuncio</p>
-                <form>
+                <form action="{{route('addad',$user->id)}}" method="POST">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Dale nombre a tu anuncio</label>
-                        <input class="form-control inputs" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label>Dale nombre a tu anuncio</label>
+                        <input class="form-control inputs" id="nameInput" name ="nameInput">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Descripción</label>
-                        <input class="form-control inputs" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label>Descripción</label>
+                        <input class="form-control inputs" id="descriptionInput" name ="descriptionInput">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Precio</label>
-                        <input class="form-control inputs" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label>Precio</label>
+                        <input class="form-control inputs" id="priceInput" name ="priceInput">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Stock</label>
-                        <input class="form-control inputs" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label>Stock</label>
+                        <input class="form-control inputs" id="stockInput" name ="stockInput">
                     </div>
                     <div class="form-group">
                         <label>Productos</label>
-                        <select style="width: 200px" class="form-control" id="categoryId" name="categoryId">
-                            <option value="N/A" dissable="true" selected="true">--SELECT--</option>
+                        <select style="width: 200px" class="form-control" id="productId" name="productId">
+                            <option value="" dissable="true" selected="true">--SELECT--</option>
                             @foreach($product as $prod)
                             <option value="{{$prod->id}}">{{$prod->prodName}}</option>
                             @endforeach
                         </select>
                     </div>
-                </form>
-            </div>
-            <div class="col-6">
-                <p class='d5'>Rellena tus datos</p>
-                <form>
+                
+                 </div>
+                <div class="col-6">
+                    <p class='d5'>Rellena tus datos</p>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Sobre ti</label>
-                        <input class="form-control inputs" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input class="form-control inputs" id="aboutInput" name ="aboutInput" aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Ubicación</label>
-                        <input class="form-control inputs" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input class="form-control inputs" id="ubicationInput" name ="ubicationInput" aria-describedby="emailHelp">
                     </div>
                     <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input" id="checkboxInput" name ="checkboxInput">
                         <label class="form-check-label" for="exampleCheck1">Al inscribir este anuncio acepto los
                             términos y condiciones de uso</label>
                     </div>
+
                     <button type="submit" class="btn btn-primary">Crear anuncio</button>
+                    @if($errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        <bold class="grande"> ¡Ha ocurrido algo!</bold>
+                        <ul>
+                            @foreach($errors->all() as $err)
+                            <p class="normalText">{{$err}}</p>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                 </form>
             </div>
         </div>
@@ -258,8 +211,4 @@
 
 
 </body>
-<script>
-
-</script>
-
 </html>

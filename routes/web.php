@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','CategoryController@index')->name('home');
+Route::get('/','GeneralController@homeIndex')->name('home');
 Route::get('/login', function () {
     return view('login');
 });
@@ -32,8 +32,9 @@ Route::get('/account','GeneralController@accountIndex');
 Route::get('/account/{id}','GeneralController@accountIndexId');
 
 Route::get('/addad/{id}','GeneralController@addadIndex');
+Route::post('/addad/{id}/post','AdController@store')->name('addad');
 
-Route::get('/ad/{id}', 'GeneralController@adIndex')->name('advertisement');
+//Route::get('/ad/{id}', 'GeneralController@adIndex')->name('advertisement');
 
 Route::get('/account','GeneralController@accountIndex');
 

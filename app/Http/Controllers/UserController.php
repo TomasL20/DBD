@@ -44,11 +44,15 @@ class UserController extends Controller
             'usernameInput.required' => 'No se ha puesto nombre de usuario.',
             'usernameInput.min' => 'El nombre de usuario debe ser de mínimo 4 carácteres y máximo 26.',
             'usernameInput.max' => 'El nombre de usuario debe ser de mínimo 4 carácteres y máximo 26.',
+            'usernameInput.unique' => 'Ese nombre de usuario ya existe',
             'nameInput.required' => 'No se ha puesto nombre.',
             'nameInput.min' => 'El nombre debe ser de mínimo 6 carácteres y máximo 100.',
             'nameInput.max' => 'El nombre debe ser de mínimo 6 carácteres y máximo 100.',
             'emailInput.email' => 'El email no es válido.',
             'emailInput.unique' => 'El email ya existe.',
+            'passwordInput.required' => 'No se ha puesto una contraseña',
+            'passwordInput.min' => 'La contraseña debe tener de entre 4 a 26 carácteres',
+            'passwordInput.max' => 'La contraseña debe tener de entre 4 a 26 carácteres'
         ]);
         $user->userName = $request->usernameInput;
         $user->realName = $request->nameInput;
