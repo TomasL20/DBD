@@ -119,6 +119,17 @@ class GeneralController extends Controller
         return view('addad',compact('ad','category','order','product','rating','user'));
     }
 
+    public function adsIndex(int $id)
+    {
+        $user = User::find($id);
+        $ad = Ad::all()->where('eliminatedAt', null);
+        $category = Category::all()->where('eliminatedAt', null);
+        $order = Order::all()->where('eliminatedAt', null);
+        $product = Product::all()->where('eliminatedAt', null);
+        $rating = Rating::all()->where('eliminatedAt', null);
+        $users = User::all()->where('eliminatedAt', null);
+        return view('showads', compact('ad', 'category', 'order', 'product', 'rating', 'user','users'));
+    }
 
     /**
      * Show the form for creating a new resource.
