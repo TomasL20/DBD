@@ -71,12 +71,6 @@
         background-color: #2ec4b6;
     }
 
-    .alert-danger {
-        background-color: #3C6E71;
-        border: initial;
-        color: #d9d9d9;
-    }
-
     .grande {
         font-size: 400%;
     }
@@ -132,26 +126,26 @@
         <form action="{{route('login')}}" method="POST">
             @if($errors->any())
             <div class="alert alert-danger" role="alert">
-                <bold class="grande"> ¡Ha ocurrido algo!</bold>
+                <bold > ¡Ha ocurrido algo!</bold>
                 <ul>
                     @error('emailInput')
-                    <p class="normalText">El email debe ser válido.</p>
+                    <p >El email debe ser válido.</p>
                     @enderror
                     @error('passwordInput')
-                    <p class="normalText">No se ha puesto una contraseña.</p>
+                    <p >No se ha puesto una contraseña.</p>
                     @enderror
                 </ul>
             </div>
             @endif
             @if($llave ?? '')
             <div class="alert alert-danger" role="alert">
-                <bold class="grande"> ¡Ha ocurrido algo!</bold>
+                <bold > ¡Ha ocurrido algo!</bold>
                 <ul>
                     @if($llave==3)
-                    <p class="normalText">El email ingresado no existe.</p>
+                    <p >El email ingresado no existe.</p>
                     @endif
                     @if($llave==1)
-                    <p class="normalText">La contraseña es incorrecta.</p>
+                    <p >La contraseña es incorrecta.</p>
                     @endif
                 </ul>
             </div>

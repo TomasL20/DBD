@@ -64,11 +64,6 @@
         background-color: #FF8E48;
     }
 
-    .alert-danger {
-        background-color: #3C6E71;
-        border: initial;
-        color: #d9d9d9;
-    }
 
     .grande {
         font-size: 400%;
@@ -115,10 +110,10 @@
     <div class="container-fluid">
         @if($errors->any())
         <div class="alert alert-danger" role="alert">
-            <bold class="grande"> ¡Ha ocurrido algo!</bold>
+            <bold> ¡Ha ocurrido algo!</bold>
             <ul>
                 @foreach($errors->all() as $err)
-                <p class="normalText">{{$err}}</p>
+                <p>{{$err}}</p>
                 @endforeach
             </ul>
         </div>

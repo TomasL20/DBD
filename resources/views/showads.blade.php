@@ -75,7 +75,7 @@
     a.b:hover {
         color: #FFBF69;
     }
-    ,
+    
     a.btn:hover{
         color: #000000;
     }
@@ -83,6 +83,7 @@
 
 <body class="container-fluid">
     @include('includes.navbar')
+    @if ($user ?? '')
     <div class="container-fluid ">
         <div class="row">
             <div class="col-6 centrar">
@@ -137,5 +138,10 @@
             </div>
         </div>
     </div>
-
+    @else
+    <p class ="h1">
+        No estás logueado:(
+    </p> 
+    <!-- esto se podria haber hecho bonito onda como en el publicar anuncio redirecciona al login pero tengo demasiado sueño, perdon unu-->
+    @endif
 </body>

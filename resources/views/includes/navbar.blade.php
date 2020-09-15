@@ -26,9 +26,15 @@
                         </a>
                         @endif
                     </li>
+                    @if($user ?? '')
                     <li class="nav-item">
-                        <a class="nav-link d2" href="#">Ver todos los anuncios</a>
+                        <a class="nav-link d2" href="/showads/<?= $user->id ?>">Ver todos los anuncios</a>
                     </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link d2" href="/showads/">Ver todos los anuncios</a>
+                    </li>
+                    @endif
                 </ul>
                 @if($user ?? '')            
                     <ul class="navbar-nav nav-flex-icons">

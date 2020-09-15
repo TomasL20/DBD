@@ -38,6 +38,7 @@ Route::post('/addad/{id}/post','AdController@store')->name('addad');
 
 Route::get('/account','GeneralController@accountIndex');
 
+Route::get('/showads', 'GeneralController@adsIndexU');
 Route::get('/showads/{id}', 'GeneralController@adsIndex');
 
 //Rutas de Ad
