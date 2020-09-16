@@ -101,12 +101,13 @@ class GeneralController extends Controller
         return view('account',compact('ad','category','order','product','rating','user'));
     }
 
-    public function adIndex(int $id){
-        $ad = Ad::findOrFail($id);
-        $user = User::find($ad->idUser);
+    public function adIndex(int $idU, int $idAd){
+        $ad = Ad::findOrFail($idAd);
+        $userOwner = User::find($ad->idUser);
+        $user = User::find($idU);
         $product = Product::find($ad->idProd);
         $rating = Rating::all()->where('eliminatedAt', null);
-        return view('advertisementID', compact('ad','user','product','rating'));
+        return view('advertisementID', compact('ad','userOwner','product','rating','user'));
     }
 
     public function addadIndex(int $id){

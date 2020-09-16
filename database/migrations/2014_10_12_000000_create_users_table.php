@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamp('eliminatedAt')->nullable();
             $table->timestamps(); //saber cuando se crea una tabla, o cuando se ha hecho una migracion.
+
         });
     }
 

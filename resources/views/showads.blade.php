@@ -104,7 +104,7 @@
                             @endforeach
                         @endforeach
                         <div >
-                            <a href="#" class="btn color d3 posbtn">¡Arriéndalo!</a>
+                            <a href="/advertisement/<?= $user->id ?>/<?= $d->id ?>" class="btn color d3 posbtn">¡Arriéndalo!</a>
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@
                             @endforeach
                         @endforeach
                         <div >
-                            <a href="#" class="btn color d3 posbtn">¡Arriéndalo!</a>
+                            <a href="/advertisement/<?= $user->id ?>/<?= $d->id ?>" class="btn color d3 posbtn">¡Arriéndalo!</a>
                         </div>
                     </div>
                 </div>

@@ -44,7 +44,7 @@
                             <div class="dropdown-menu dropdown-menu-right dropdown-default"
                             aria-labelledby="navbarDropdownMenuLink-333">
                                 <a class="dropdown-item" href = "/account/<?= $user->id ?>" >{{$user->userName}}</a>
-                                <a class="dropdown-item" type = "submit" href="{{url('/')}}">Mis arriendos</a>
+                                <a class="dropdown-item" type = "submit">Mis arriendos</a>
                                 <a class="dropdown-item" href = "{{url('/home')}}">Cerrar sesión</a>
                             </div>
                         </li>

@@ -25,9 +25,29 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <!------ Include the above in your HEAD tag ---------->
+
+           <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/vistaone.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="https://i.ibb.co/W3kkGF3/P-1.png">
+    <title>YoPresto | Anuncios</title>
+
     </head>
 
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Pacifico&display=swap');
         .parent {
             display: grid;
             grid-template-columns: 0.2fr repeat(2, 0.6fr) 1fr 0.2fr;
@@ -180,114 +200,12 @@
     </style>
 
     <body>
-        <div class="parent">
+
+        @if($user ?? '')
+        <div class="parent container-fluid">
+            
             <div class="div1">
-                <div class="navbar">
-                    <nav class="mb-1 navbar navbar-expand-lg">
-                        <img
-                            src="https://i.ibb.co/W3kkGF3/P-1.png"
-                            width="40"
-                            height="40"
-                            alt="Logotipo no vendo, yo presto"
-                        />
-                        @if($user ?? '')
-                        <a
-                            class="navbar-brand d1 inline"
-                            href="/home/<?= $user->id ?>"
-                            >No vendo, Yo Presto</a
-                        >
-                        @else
-                        <a
-                            class="navbar-brand d1 inline"
-                            href="{{ url('/home') }}"
-                            >No vendo, Yo Presto</a
-                        >
-                        @endif
-                        <button
-                            class="navbar-toggler"
-                            type="button"
-                            data-toggle="collapse"
-                            data-target="#navbarSupportedContent-333"
-                            aria-controls="navbarSupportedContent-333"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation"
-                        >
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div
-                            class="collapse navbar-collapse"
-                            id="navbarSupportedContent-333"
-                        >
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link d2" href="#"
-                                        >Crea tu anuncio
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link d2" href="#">Features</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link d2" href="#">Pricing</a>
-                                </li>
-                            </ul>
-                            @if($user ?? '')
-                            <ul class="navbar-nav nav-flex-icons">
-                                <li class="nav-item dropdown">
-                                    <a
-                                        class="nav-link dropdown-toggle"
-                                        id="navbarDropdownMenuLink-333"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        ><i class="fas fa-user-alt"></i
-                                    ></a>
-                                    <div
-                                        class="dropdown-menu dropdown-menu-right dropdown-default"
-                                        aria-labelledby="navbarDropdownMenuLink-333"
-                                    >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/account/<?= $user->id ?>"
-                                            >{{$user->userName}}</a
-                                        >
-                                        <button
-                                            class="dropdown-item"
-                                            type="submit"
-                                            href="{{ url('/') }}"
-                                        >
-                                            Mis arriendos
-                                        </button>
-                                        <button
-                                            class="dropdown-item"
-                                            href="{{ url('/home') }}"
-                                        >
-                                            Cerrar sesión
-                                        </button>
-                                    </div>
-                                </li>
-                            </ul>
-                            @else
-                            <ul class="navbar-nav nav-flex-icons">
-                                <li class="nav-item dropdown">
-                                    <a
-                                        class="navbar-brand d2 inline rgbtn"
-                                        href="{{ url('/register') }}"
-                                        >Registrarse</a
-                                    >
-                                    <a
-                                        class="navbar-brand d2 inline rgbtn"
-                                        href="{{ url('/login') }}"
-                                        >Iniciar sesión</a
-                                    >
-                                </li>
-                            </ul>
-                            @endif
-                        </div>
-                    </nav>
-                    <!--/.Navbar -->
-                </div>
+                @include('includes.navbar')
             </div>
 
             <div class="div2">
@@ -343,10 +261,10 @@
                         </div>
                         <div class="col-sm-6 col-md-8">
                             <h4>
-                                {{$user->realName}}
+                                {{$userOwner->realName}}
                             </h4>
                             <p class="text">info : {{$ad->arrInfo}}</p>
-                            <p class="text">correo : {{$user->email}}</p>
+                            <p class="text">correo : {{$userOwner->email}}</p>
                             <p class="text">ubicación : {{$ad->location}}</p>
                         </div>
                     </div>
@@ -364,5 +282,7 @@
             <div class="div10"></div>
             <div class="div11"></div>
         </div>
+        @else
+        @endif
     </body>
 </html>

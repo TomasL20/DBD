@@ -182,6 +182,7 @@
                             </div>
                             <div>
                                 <button name="registerbtn" type="submit" class="btn btn-secondary">Iniciar Sesión</button>
+                                
                             </div>
                             <p class="d3">Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
                             <p class="end d3">¿No tienes cuenta?</p>
