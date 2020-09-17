@@ -39,8 +39,10 @@ class UserController extends Controller
             'nameInput' => 'required|min:6|max:100',
             'emailInput' => 'email:rfc|unique:users,email',
             'passwordInput' => 'required|min:4|max:26',
+            'imageUserInput' => 'url|nullable'
         ],
         [
+            'imageUserInput.url' => 'la url de la imagen es incorrecto',
             'usernameInput.required' => 'No se ha puesto nombre de usuario.',
             'usernameInput.min' => 'El nombre de usuario debe ser de mínimo 4 carácteres y máximo 26.',
             'usernameInput.max' => 'El nombre de usuario debe ser de mínimo 4 carácteres y máximo 26.',
@@ -58,6 +60,7 @@ class UserController extends Controller
         $user->realName = $request->nameInput;
         $user->email = $request->emailInput;
         $user->password = $request->passwordInput;
+        $user->imageUserURL = $request->imageUserInput;
         $user->save();
         return view('home',compact('user','category'));
     }

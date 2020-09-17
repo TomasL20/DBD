@@ -18,7 +18,9 @@ $factory->define(Ad::class, function (Faker $faker) {
         'stock' => $faker->numberBetween($min = 0, $max = 100), // Se hace uso de un numero random para tener un stock entre 0 y 100
         'status' => $faker->boolean(), // Se hace uso de este tipo de dato, para ver que el estado sea true si esta disponible, o flase de lo contrario
         'location' => $faker->randomElement($array = array ('Santiago','La Serena','Concepción','Puerto Montt', 'Valparaiso', 'Rancagua')), // Se hace uso de este tipo de dato para generar una localizacion al azar dentro de las que fueron especificadas
+        'imageURL' => $faker->imageUrl($width = 380, $height = 500, 'cats'),
         'idProd' => $faker->randomElement($idProd), // Se hace uso de este tipo de dato para poder generar un numero random del id del producto
         'idUser' => $faker->randomElement($idUser), //Se hace uso de este tipo de dato para poder generar un numero random del id del usuario
+
     ];
 });

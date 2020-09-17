@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique(); //E-mail del usuario, el cual es un dato constraint, se maneja como unico
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password'); //clave del usuario
+            $table->string('imageUserURL')->nullable(); //URL imagen del usuario
             $table->rememberToken();
             $table->timestamp('eliminatedAt')->nullable();
             $table->timestamps(); //saber cuando se crea una tabla, o cuando se ha hecho una migracion.

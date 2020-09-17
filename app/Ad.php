@@ -9,7 +9,7 @@ class Ad extends Model
      //se colocan los campos los cuales se quieren llenar
     protected $fillable = [
         'description', 'descName', 'price',
-        'arrInfo', 'stock', 'status','location',
+        'arrInfo', 'stock', 'status','location', 'imageURL'
     ];
     //se especifica el tipo de relaciones que posee la clase
     //la clase "Ad" tiene una relacion de uno es a muchos con un objeto de la clase "Order"

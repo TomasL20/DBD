@@ -26,6 +26,7 @@ class CreateAdsTable extends Migration
             $table->integer('stock');//Corresponde al stock que posee el anuncio (cantidad de productos disponibles)
             $table->boolean('status');//Estado en el cual se encuentra el anuncio o producto publicado (disponible, o no disponible)
             $table->string('location'); //Corresponde la a ubicacion de la persona que hace el anuncio (donde está el producto)
+            $table->string('imageURL')->nullable(); // url de la imagen del anuncio
             //Se referencian las llaves foraneas
             $table->foreign('idProd')->references('id')->on('products'); // se referencia la llave foranea que proviene de productos "products"
             $table->foreign('idUser')->references('id')->on('users'); // se referencia la llave foranea que proviene de la tabla usuarios "users"

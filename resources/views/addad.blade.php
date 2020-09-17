@@ -167,6 +167,10 @@
                         <input class="form-control inputs" id="stockInput" name ="stockInput">
                     </div>
                     <div class="form-group">
+                        <label>Imagen (opcional)</label>
+                        <input class="form-control inputs" id="imageInput" name ="imageInput">
+                    </div>
+                    <div class="form-group">
                         <label>Productos</label>
                         <select style="width: 200px" class="form-control" id="productId" name="productId">
                             <option value="" dissable="true" selected="true">--SELECT--</option>

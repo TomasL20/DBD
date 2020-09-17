@@ -170,6 +170,12 @@
                                 </div>
 
                                 <div>
+                                    <label name="mailLabel" class="labels d3">Ingresa la url de tu imagen de usuario 380x500 (opcional):</label>
+                                    
+                                    <input class="form-control inputs" id="imageUserInput" name ="imageUserInput">
+                                </div>
+
+                                <div>
                                     <button name="registerbtn" type="submit" class="btn btn-secondary">Crear Cuenta</button>
                                 </div>
 

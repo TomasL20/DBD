@@ -44,11 +44,14 @@ class AdController extends Controller
             'priceInput' => 'required|numeric',
             'stockInput' => 'required|integer|gte:1',
             'productId' => 'required',
+            'imageInput' => 'url|nullable',
             'aboutInput' => 'required|min:5|max:100',
             'ubicationInput' => 'required|min:5|max:100',
             'checkboxInput' => 'accepted',
         ],
         [
+            'imageInput.url' => 'Debes poner la url de la imagen para tu anuncio.',
+
             'nameInput.required' => 'Debes poner un nombre a tu anuncio.',
             'nameInput.min' => 'El nombre debe tener de 5 a 100 carácteres.',
             'nameInput.max' => 'El nombre debe tener de 5 a 100 carácteres.',
@@ -89,6 +92,7 @@ class AdController extends Controller
         $newAd->stock = $tempStock;
         $newAd->status = $request->checkboxInput;
         $newAd->location = $request->ubicationInput;
+        $newAd->imageURL = $request->imageInput;
         $newAd->idUser = $id;
         $newAd->idProd = $request->productId;
         $newAd->save();
