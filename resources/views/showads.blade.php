@@ -92,6 +92,7 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title h1 d1">{{$d->descName}}</h5>
+                        <img style="max-width: 100%" src= {{$d->imageURL}} alt="" class="img-rounded img-responsive">
                         <p class="card-text">Precio: {{$d->price}}</p>
                         <p class="card-text">{{$d->description}}</p>
                         <p class="card-text">Stock: {{$d->stock}}</p>
@@ -117,6 +118,7 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title h1 d1">{{$ad->descName}}</h5>
+                        <img style="max-width: 100%" src= {{$d->imageURL}} alt="" class="img-rounded img-responsive">
                         <p class="card-text">Precio: {{$ad->price}}</p>
                         <p class="card-text">{{$ad->description}}</p>
                         <p class="card-text">Stock: {{$ad->stock}}</p>
