@@ -222,7 +222,7 @@
                     Descripción
                 </h1>
             </div>
-            <div class="di">
+            <div class="div">
                 <h4 class="product-title mb-2">
                     {{$ad->description}}
                 </h4>
