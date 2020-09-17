@@ -100,7 +100,7 @@
             <div class="col-sm-8 mx-auto margen">
                 <div class="card-deck">
                     <div class="card">
-                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/03/22/17/39/kitchen-2165756_960_720.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/03/22/17/39/kitchen-2165756_960_720.jpg" alt="Imagen de cocina">
                         <div class="card-body">
                             <h5 class="card-title">Departamento 3 dormitorios, 2 baños</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -117,7 +117,7 @@
                         
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/05/07/22/42/lawn-mower-2293876_960_720.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/05/07/22/42/lawn-mower-2293876_960_720.jpg" alt="Imagen de cortadora de cesped">
                         <div class="card-body">
                             <h5 class="card-title">Cortadora de pasto</h5>
                             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/12/08/00/24/grilling-1081675_960_720.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/12/08/00/24/grilling-1081675_960_720.jpg" alt="Imagen de parrilla">
                         <div class="card-body">
                             <h5 class="card-title">Parrilla</h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -152,7 +152,7 @@
             <div class="col-sm-8 mx-auto margen">
                 <div class="card-deck">
                     <div class="card">
-                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/01/08/15/48/scooter-593155_960_720.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/01/08/15/48/scooter-593155_960_720.jpg" alt="Imagen de motocicleta">
                         <div class="card-body">
                             <h5 class="card-title">Moto</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -166,7 +166,7 @@
                         
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/06/10/11/53/bouncy-castle-3466291_960_720.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/06/10/11/53/bouncy-castle-3466291_960_720.jpg" alt="Imagen de juegos inflable">
                         <div class="card-body">
                             <h5 class="card-title">Juegos inflables</h5>
                             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -179,7 +179,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2016/01/07/16/45/batman-1126127_960_720.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2016/01/07/16/45/batman-1126127_960_720.jpg" alt="Imagen de disfraz de batman">
                         <div class="card-body">
                             <h5 class="card-title">Disfraz batman </h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>

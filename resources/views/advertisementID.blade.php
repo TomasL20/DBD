@@ -201,7 +201,7 @@
                         @if($userOwner->imageUserURL ?? '')
                         <img src= {{$userOwner->imageUserURL}} alt="" class="img-rounded img-responsive" />
                         @else()
-                        <img src= https://www.xovi.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png alt="" class="img-rounded img-responsive" />
+                        <img src= https://www.xovi.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png alt="Imagen de usuario por defecto" class="img-rounded img-responsive" />
                         @endif
                     </div>
                     <div class="col-sm-6 col-md-8">
