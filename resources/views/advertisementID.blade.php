@@ -190,7 +190,7 @@
 
         <div class="div7">
             @if($ad->imageURL ?? '')
-            <img style="max-width: 100%" src= {{$ad->imageURL}} alt="" class="img-rounded img-responsive"> />
+            <img style="max-width: 100%" src= {{$ad->imageURL}} alt="" class="img-rounded img-responsive">
             @endif
         </div>
 
