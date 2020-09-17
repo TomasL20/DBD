@@ -118,7 +118,7 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title h1 d1">{{$ad->descName}}</h5>
-                        <img style="max-width: 100%" src= {{$d->imageURL}} alt="" class="img-rounded img-responsive">
+                        <img style="max-width: 100%" src= {{$ad->imageURL}} alt="" class="img-rounded img-responsive">
                         <p class="card-text">Precio: {{$ad->price}}</p>
                         <p class="card-text">{{$ad->description}}</p>
                         <p class="card-text">Stock: {{$ad->stock}}</p>
@@ -131,7 +131,7 @@
                             @endforeach
                         @endforeach
                         <div >
-                            <a href="/advertisement/<?= $user->id ?>/<?= $d->id ?>" class="btn color d3 posbtn">¡Arriéndalo!</a>
+                            <a href="/advertisement/<?= $user->id ?>/<?= $ad->id ?>" class="btn color d3 posbtn">¡Arriéndalo!</a>
                         </div>
                     </div>
                 </div>
